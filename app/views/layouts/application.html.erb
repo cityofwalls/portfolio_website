@@ -12,37 +12,38 @@
   <body>
   <!-- Bootstrap Navbar will be at the top of every page -->
   <!-- From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
-  <nav class="navbar navbar-dark navbar-static-top bg-dark" role="navigation">
+  <nav class="navbar navbar-expand-md navbar-static-top navbar-dark bg-dark" role="navigation">
     <!-- me.png added as image to navbar. From above tutorial and https://www.youtube.com/watch?v=a3qmGdiLNAc -->
     <a class="navbar-brand" href="/">
       <%= image_tag('me.png', width: "30px") %>
-      Jesse Battalino
     </a>
       <ul class="navbar-nav">
         <form class="form-inline">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <div style="padding-left: 20px">
-        <li class="nav-item">
-          <%= link_to "Resume", resume_path, class: "nav-link" %>
-        </li>
-        </div>
-        <div style="padding-left: 20px">
-        <li class="nav-item">
-          <%= link_to "Code", code_path, class: "nav-link" %>
-        </li>
-        </div>
-        <div style="padding-left: 20px">
-        <li class="nav-item">
-          <%= link_to "Music", music_path, class: "nav-link" %>
-        </li>
-        </div>
-        <div style="padding-left: 20px">
-        <li class="nav-item">
-          <%= link_to "Connect", connect_path, class: "nav-link" %>
-        </li>
-        </div>
+          <div style="padding-left: 20px">
+            <li class="nav-item">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+          </div>
+          <div style="padding-left: 20px">
+            <li class="nav-item">
+              <%= link_to "Resume", resume_path, class: "nav-link" %>
+            </li>
+          </div>
+          <div style="padding-left: 20px">
+            <li class="nav-item">
+              <%= link_to "Code", code_path, class: "nav-link" %>
+            </li>
+          </div>
+          <div style="padding-left: 20px">
+            <li class="nav-item">
+              <%= link_to "Music", music_path, class: "nav-link" %>
+            </li>
+          </div>
+          <div style="padding-left: 20px">
+            <li class="nav-item">
+              <%= link_to "Connect", connect_path, class: "nav-link" %>
+            </li>
+          </div>
         </form>
       </ul>
     </div>
