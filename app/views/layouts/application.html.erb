@@ -10,64 +10,49 @@
   </head>
 
   <body>
-    <!-- Bootstrap Navbar will be at the top of every page -->
-    <!-- From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
-    <nav class="navbar navbar-dark bg-dark">
-      <!-- me.png added as image to navbar. From above tutorial and https://www.youtube.com/watch?v=a3qmGdiLNAc -->
-      <a class="navbar-brand" href="/">
-        <%= image_tag('me.png', width: "30px") %>
-        Jesse Battalino
-      </a>
-      <!-- Navigation Toggle from https://getbootstrap.com/docs/4.0/components/navbar/ -->
-      <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="#navbarNavDropdown" aria-enpanded="false" aria-label="Toggle Navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>-->
-      <div class="nav-buttons">
-        <ul class="navbar-nav">
-          <form class="form-inline">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <div style="padding-left: 20px">
-          <li class="nav-item">
-            <a class="nav-link" href="/resume">Resume</a>
-          </li>
-          </div>
-          <div style="padding-left: 20px">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/code" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Code
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/python">Python</a>
-              <a class="dropdown-item" href="/java">Java</a>
-              <a class="dropdown-item" href="/swift">Swift/iOS</a>
-              <a class="dropdown-item" href="/rubyonrails">Ruby on Rails</a>
-              <a class="dropdown-item" href="/go">Go</a>
-              <a class="dropdown-item" href="/functional">Functional Programming</a>
-            </div>
-          </li>
-          </div>
-          <div style="padding-left: 20px">
-          <li class="nav-item">
-            <a class="nav-link" href="/music">Music</a>
-          </li>
-          </div>
-          <div style="padding-left: 20px">
-          <li class="nav-item">
-            <a class="nav-link" href="/connect">Connect</a>
-          </li>
-          </div>
-          </form>
-        </ul>
-      </div>
-      <!--<form class="form-inline">
-        <button class="btn btn-outline-primary" type="button">Main Button</button>
-        <div style="padding-left: 10px">
-          <button class="btn btn-outline-success" type="button">Second Button</button>
+  <!-- Bootstrap Navbar will be at the top of every page -->
+  <!-- From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
+  <nav class="navbar navbar-dark navbar-static-top bg-dark" role="navigation">
+    <!-- me.png added as image to navbar. From above tutorial and https://www.youtube.com/watch?v=a3qmGdiLNAc -->
+    <a class="navbar-brand" href="/">
+      <%= image_tag('me.png', width: "30px") %>
+      Jesse Battalino
+    </a>
+      <ul class="navbar-nav">
+        <form class="form-inline">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <div style="padding-left: 20px">
+        <li class="nav-item">
+          <%= link_to "Resume", resume_path, class: "nav-link" %>
+        </li>
         </div>
-      </form>-->
-    </nav>
-    <%= yield %>
+        <div style="padding-left: 20px">
+        <li class="nav-item">
+          <%= link_to "Code", code_path, class: "nav-link" %>
+        </li>
+        </div>
+        <div style="padding-left: 20px">
+        <li class="nav-item">
+          <%= link_to "Music", music_path, class: "nav-link" %>
+        </li>
+        </div>
+        <div style="padding-left: 20px">
+        <li class="nav-item">
+          <%= link_to "Connect", connect_path, class: "nav-link" %>
+        </li>
+        </div>
+        </form>
+      </ul>
+    </div>
+    <!--<form class="form-inline">
+      <button class="btn btn-outline-primary" type="button">Main Button</button>
+      <div style="padding-left: 10px">
+        <button class="btn btn-outline-success" type="button">Second Button</button>
+      </div>
+    </form>-->
+  </nav>
+  <%= yield %>
   </body>
 </html>
