@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   get "/code" => "pages#code"
   get "music" => "pages#music"
   get "/connect" => "pages#connect"
-  
 end
