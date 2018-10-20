@@ -12,11 +12,16 @@
   <body>
   <!-- Bootstrap Navbar will be at the top of every page -->
   <!-- From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
-  <nav class="navbar navbar-expand-md navbar-static-top navbar-dark bg-dark" role="navigation">
+  <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark" role="navigation">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapse_target">
     <!-- me.png added as image to navbar. From above tutorial and https://www.youtube.com/watch?v=a3qmGdiLNAc -->
     <a class="navbar-brand" href="/">
       <%= image_tag('me.png', width: "30px") %>
     </a>
+    <span class="navbar-text">Jesse Battalino</span>
       <ul class="navbar-nav">
         <form class="form-inline">
           <div style="padding-left: 20px">
@@ -30,8 +35,16 @@
             </li>
           </div>
           <div style="padding-left: 20px">
-            <li class="nav-item">
-              <%= link_to "Code", code_path, class: "nav-link" %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
+                Code
+                <span class="caret"></span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                <%= link_to "Python", root_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Java", root_path, class: "dropdown-item" %>
+              </div>
             </li>
           </div>
           <div style="padding-left: 20px">
