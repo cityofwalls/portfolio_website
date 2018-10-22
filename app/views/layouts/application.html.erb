@@ -24,18 +24,19 @@
     <span class="navbar-text">Jesse Battalino</span>
       <ul class="navbar-nav">
         <form class="form-inline">
+          <!-- active_class and dropdown_active_class are helper methods to allow the current page to be highlighted when that is the active page. These helper methods are defined in /app/helpers/application_helper.rb -->
           <div style="padding-left: 20px">
-            <li class="nav-item">
+            <li class="<%= active_class(root_path) %>">
               <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
           </div>
           <div style="padding-left: 20px">
-            <li class="nav-item">
+            <li class="<%= active_class(resume_path) %>">
               <%= link_to "Resume", resume_path, class: "nav-link" %>
             </li>
           </div>
           <div style="padding-left: 20px">
-            <li class="nav-item dropdown">
+            <li class="<%= dropdown_active_class() %>">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
                 Code
                 <span class="caret"></span>
@@ -52,12 +53,12 @@
             </li>
           </div>
           <div style="padding-left: 20px">
-            <li class="nav-item">
+            <li class="<%= active_class(music_path) %>">
               <%= link_to "Music", music_path, class: "nav-link" %>
             </li>
           </div>
           <div style="padding-left: 20px">
-            <li class="nav-item">
+            <li class="<%= active_class(connect_path) %>">
               <%= link_to "Connect", connect_path, class: "nav-link" %>
             </li>
           </div>
