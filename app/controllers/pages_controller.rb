@@ -8,6 +8,18 @@ class PagesController < ApplicationController
     def code
     end
     
+    def python
+    end
+    
+    def java
+    end
+    
+    def go
+    end
+    
+    def swift
+    end
+    
     def music
     end
     
