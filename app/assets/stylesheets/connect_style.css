@@ -1,0 +1,20 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Galada', cursive;
+    border-bottom: 2px solid crimson;
+    color: gray;
+}
+
+.insta {
+    display: block;
+    max-width: 500px;
+    max-height: 450px;
+    width: auto;
+    height: auto;
+    margin: 10px;
+}
