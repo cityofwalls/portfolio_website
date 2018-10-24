@@ -18,7 +18,7 @@ Rails.application.config.assets.precompile += %w( connect_style.css )
 Rails.application.config.assets.precompile += %w( python_style.css )
 
 # Configure JS assets here
-# Rails.application.config.assets.precompile += %w( skulpt.min.js )
+Rails.application.config.assets.precompile += %w( skulpt.min.js )
 # Rails.application.config.assets.precompile += %w( numeric-1.2.6.min.js )
 # Rails.application.config.assets.precompile += %w( jquery.flot.orderbars.min.js )
 # Rails.application.config.assets.precompile += %w( jquery.flot.min.js )
