@@ -15,15 +15,16 @@
   
   <head> 
   
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" %>
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false" %>
-    <%= javascript_include_tag "skulpt.min" %>
-    <%= javascript_include_tag "jquery.flot.min" %>
-    <%= javascript_include_tag "jquery.flot.orderbars.min" %>
-    <%= javascript_include_tag "numeric-1.2.6.min" %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js" %>
+    <%= javascript_include_tag "https://py3.codeskulptor.org/vendor/skulpt.min.js" %>
+    <%= javascript_include_tag "https://py3.codeskulptor.org/vendor/skulpt-stdlib.js" %>
+    <%= javascript_include_tag "https://py3.codeskulptor.org/vendor.js" %>
     <%= javascript_include_tag "codeskulptor-compressed" %>
-    <%= javascript_include_tag "codemirror-compressed" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps-api-v3/api/js/34/15/common.js" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps-api-v3/api/js/34/15/util.js" %>
     
     <title>Python Projects | Jesse Battalino</title>
     
@@ -31,30 +32,39 @@
   
   <body>
     
-    <script> 
+    <form>
+      <textarea id="helloworld" readonly rows='5' cols='20'>
+print("hello, world")
+      </textarea><br />
+      <button type='button' onclick="runit('helloworld')">Run</button>
+    </form>
+    <pre id="output"></pre> 
+    <div id="canvas"></div>
+    
+    <script>
     // output functions are configurable.  This one just appends some text
     // to a pre element.
     function outf(text) { 
-      var mypre = document.getElementById("output"); 
-      mypre.innerHTML = mypre.innerHTML + text; 
+        var mypre = document.getElementById("output"); 
+        mypre.innerHTML = mypre.innerHTML + text; 
     } 
-    
     function builtinRead(x) {
-      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) throw "File not found: '" + x + "'";
-      return Sk.builtinFiles["files"][x];
+        if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+                throw "File not found: '" + x + "'";
+        return Sk.builtinFiles["files"][x];
     }
     // Here's everything you need to run a python program in skulpt
     // grab the code from your textarea
     // get a reference to your pre element for output
     // configure the output function
     // call Sk.importMainWithBody()
-    function runit() { 
-       var prog = document.getElementById("yourcode").value; 
+    function runit(elementID) { 
+       var prog = document.getElementById(elementID).value; 
        var mypre = document.getElementById("output"); 
        mypre.innerHTML = ''; 
        Sk.pre = "output";
        Sk.configure({output:outf, read:builtinRead}); 
-       (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+       (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'canvas';
        var myPromise = Sk.misceval.asyncToPromise(function() {
            return Sk.importMainWithBody("<stdin>", false, prog, true);
        });
@@ -65,26 +75,6 @@
            console.log(err.toString());
        });
     } 
-    </script> 
-    
-    <h3>Try This</h3> 
-    <form> 
-    <textarea id="yourcode" cols="40" rows="10">
-import turtle
-
-t = turtle.Turtle()
-t.forward(100)
-
-print "Hello World" 
-    </textarea><br /> 
-    <button type="button" onclick="runit()">Run</button> 
-    </form> 
-    <div id="console" style="display:inline-block; border:0px solid red; vertical-align:top; width:49%">
-      <pre id="output"></pre> 
-    </div>
-    <!-- If you want turtle graphics include a canvas -->
-    <div id="mycanvas"><canvas></canvas></div> 
-    
-     
+    </script>
   </body>
 </html>

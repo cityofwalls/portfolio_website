@@ -17,11 +17,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( connect_style.css )
 
 # Configure JS assets here
-Rails.application.config.assets.precompile += %w( skulpt.min.js )
-# Rails.application.config.assets.precompile += %w( skulpt-stdlib.js )
-Rails.application.config.assets.precompile += %w( numeric-1.2.6.min.js )
-Rails.application.config.assets.precompile += %w( jquery.flot.orderbars.min.js )
-Rails.application.config.assets.precompile += %w( jquery.flot.min.js )
-# Rails.application.config.assets.precompile += %w( jquery.flot.axislabels.min.js )
+# Rails.application.config.assets.precompile += %w( skulpt.min.js )
+# Rails.application.config.assets.precompile += %w( numeric-1.2.6.min.js )
+# Rails.application.config.assets.precompile += %w( jquery.flot.orderbars.min.js )
+# Rails.application.config.assets.precompile += %w( jquery.flot.min.js )
 Rails.application.config.assets.precompile += %w( codeskulptor-compressed.js )
-Rails.application.config.assets.precompile += %w( codemirror-compressed.js )
+# Rails.application.config.assets.precompile += %w( codemirror-compressed.js )
+
+Rails.application.config.assets.precompile += %w( pythonrun.js )
