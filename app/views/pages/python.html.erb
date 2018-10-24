@@ -26,6 +26,8 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps-api-v3/api/js/34/15/common.js" %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps-api-v3/api/js/34/15/util.js" %>
     
+    <%= stylesheet_link_tag    'python_style', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
     <title>Python Projects | Jesse Battalino</title>
     
   </head>
@@ -33,10 +35,14 @@
   <body>
     
     <form>
-      <textarea id="helloworld" readonly rows='5' cols='20'>
+      <textarea id="helloWorld" class='helloWorld' readonly>
+print("hello, world")
+print("hello, world")
+print("hello, world")
+print("hello, world")
 print("hello, world")
       </textarea><br />
-      <button type='button' onclick="runit('helloworld')">Run</button>
+      <button type='button' onclick="runit('helloWorld')">Run</button>
     </form>
     <pre id="output"></pre> 
     <div id="canvas"></div>

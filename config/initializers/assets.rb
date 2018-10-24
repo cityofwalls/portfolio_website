@@ -15,6 +15,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Configure CSS assets here
 Rails.application.config.assets.precompile += %w( connect_style.css )
+Rails.application.config.assets.precompile += %w( python_style.css )
 
 # Configure JS assets here
 # Rails.application.config.assets.precompile += %w( skulpt.min.js )
