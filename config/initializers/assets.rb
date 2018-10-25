@@ -8,6 +8,10 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
+# Add custom asset folders to asset pipeline
+Rails.application.config.assets.enabled = true
+Rails.application.config.assets.paths << Rails.root.join("app", "assets", "plugins", "frogger", "py")
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
@@ -24,5 +28,3 @@ Rails.application.config.assets.precompile += %w( skulpt.min.js )
 # Rails.application.config.assets.precompile += %w( jquery.flot.min.js )
 Rails.application.config.assets.precompile += %w( codeskulptor-compressed.js )
 # Rails.application.config.assets.precompile += %w( codemirror-compressed.js )
-
-Rails.application.config.assets.precompile += %w( pythonrun.js )

@@ -27,5 +27,8 @@ module PortfolioWebsite
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    
+    # Trying to add more directories to Asset Pipeline
+    config.assets.paths << Rails.root.join("app", "assets", "python")
   end
 end
