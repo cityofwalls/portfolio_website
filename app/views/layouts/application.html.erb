@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!--<title>Jesse Battalino</title>-->
     <%= favicon_link_tag 'me.png' %>
     <%= csrf_meta_tags %>
 
@@ -10,8 +9,7 @@
   </head>
 
   <body>
-  <!-- Bootstrap Navbar will be at the top of every page -->
-  <!-- From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
+  <!-- Bootstrap Navbar will be at the top of every page. From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
   <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark" role="navigation">
     
     <!-- Commenting out navbar collapsing on xs and sm for now.
@@ -71,12 +69,6 @@
         </form>
       </ul>
     </div>
-    <!--<form class="form-inline">
-      <button class="btn btn-outline-primary" type="button">Main Button</button>
-      <div style="padding-left: 10px">
-        <button class="btn btn-outline-success" type="button">Second Button</button>
-      </div>
-    </form>-->
   </nav>
   <%= yield %>
   </body>

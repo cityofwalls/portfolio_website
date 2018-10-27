@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <!--<head>-->
-  <!--  <title>Python Projects | Jesse Battalino</title>-->
-  <!--</head>-->
-  <!--<body>-->
-  <!--  <h1>Python Stuff</h1>-->
-  <!--  <p>-->
-  <!--    will go here.-->
-  <!--    <div></div>-->
-  <!--    <a href='http://www.codeskulptor.org/#user44_mE6uJQaqW2bKCW6.py' onclick='CodeSkulptor.CSModel("R"); return false;'>Flappy Bird</a>-->
-  <!--  </p>-->
-  <!--  <div></div>-->
-  <!--</body>-->
   
   <head> 
   
+    <!-- Js files needed to run codeskulptor code. From: http://saibotshamtul-socas.blogspot.com/2013/12/how-to-run-codeskulptor-python-programs.html -->
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" %>
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
@@ -34,57 +23,81 @@
   <body>
       
     <form>
-        
-        <textarea id="frogger" class='frogger' readonly></textarea><br />
-        <script> $( "#frogger" ).load( '/assets/frogger-6bb270ac84d800e788d1a7c3eb0bb54546f04ee9939fcdc759c0061f0110eade.py' ); </script>
-        <button type='button' onclick="runit('frogger')">Run</button>
-        <div></div>
-        <textarea id="flappybird" class='flappybird' readonly></textarea><br />
-        <script> $( "#flappybird" ).load( '/assets/flappybird-94e16d81a0ff7700b821b2e86a0528975d302b40cefc1aa98bb57124b31491cb.py' ); </script>
-        <button type='button' onclick="runit('flappybird')">Run</button>
-        <div></div>
-        <textarea id="maze" class='maze' readonly></textarea><br />
-        <script> $( "#maze" ).load( '/assets/maze-90f0bdff79fb9ef651d420b1e90bc806bea02a88482029c51365fa612c3676d1.py' ); </script>
-        <button type='button' onclick="runit('maze')">Run</button>
+      <!-- Loading text files into html. From: https://stackoverflow.com/questions/19020484/loading-txt-file-into-textarea-javascript -->
+      <p>Frogger</p>
+      <textarea id="frogger" class='frogger' readonly></textarea><br />
+      <script> $( "#frogger" ).load( '/assets/frogger-6bb270ac84d800e788d1a7c3eb0bb54546f04ee9939fcdc759c0061f0110eade.py' ); </script>
+      <button type='button' onclick="runit('frogger')">Run</button>
+      <div>---</div>
+      <p>Flappy Bird</p>
+      <textarea id="flappybird" class='flappybird' readonly></textarea><br />
+      <script> $( "#flappybird" ).load( '/assets/flappybird-94e16d81a0ff7700b821b2e86a0528975d302b40cefc1aa98bb57124b31491cb.py' ); </script>
+      <button type='button' onclick="runit('flappybird')">Run</button>
+      <div>---</div>
+      <p>Maze Generator and Solver</p>
+      <textarea id="maze" class='maze' readonly></textarea><br />
+      <script> $( "#maze" ).load( '/assets/maze-90f0bdff79fb9ef651d420b1e90bc806bea02a88482029c51365fa612c3676d1.py' ); </script>
+      <button type='button' onclick="runit('maze')">Run</button>
+      <div>---</div>
+      <p>Pong!</p>
+      <textarea id="pong" class='pong' readonly></textarea><br />
+      <script> $( "#pong" ).load( '/assets/pong-b8597ac27b87d667d6c14818eb98d67b9b8346218ef56437e8176a459148eb0f.py' ); </script>
+      <button type='button' onclick="runit('pong')">Run</button>
+      <div>---</div>
+      <p>Blackjack</p>
+      <textarea id="blackjack" class='blackjack' readonly></textarea><br />
+      <script> $( "#blackjack" ).load( '/assets/blackjack-41e612f098b2ce539fa574be81214e4d4116dabd501402e6e3293a20c89769e2.py' ); </script>
+      <button type='button' onclick="runit('blackjack')">Run</button>
+      <div>---</div>
+      <p>Rock, Paper, Scissors, Lizard, Spock</p>
+      <textarea id="rpsls" class='rpsls' readonly></textarea><br />
+      <script> $( "#rpsls" ).load( '/assets/rpsls-58c63e3031b66b5b8ee0a854ec635a472b02f7f4276683575c10cd44f536c720.py' ); </script>
+      <button type='button' onclick="runit('rpsls')">Run</button>
+      <div>---</div>
+      <p>LCS w/ Dynamic Programming</p>
+      <textarea id="lcs" class='lcs' readonly></textarea><br />
+      <script> $( "#lcs" ).load( '/assets/lcs-2ea9bc1da8c3d6c0f428a3a482f16a226e43cec250fe89846bea87c8db03eec0.py' ); </script>
+      <button type='button' onclick="runit('lcs')">Run</button>
+      <div>---</div>
     </form>
     <pre id="output"></pre> 
     <div id="canvas"></div>
     
     <script>
-    // output functions are configurable.  This one just appends some text
-    // to a pre element.
-    function outf(text) { 
-        var mypre = document.getElementById("output"); 
-        mypre.innerHTML = mypre.innerHTML + text; 
-    } 
-    function builtinRead(x) {
-        if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-                throw "File not found: '" + x + "'";
-        return Sk.builtinFiles["files"][x];
-    }
-    // Here's everything you need to run a python program in skulpt
-    // grab the code from your textarea
-    // get a reference to your pre element for output
-    // configure the output function
-    // call Sk.importMainWithBody()
-    function runit(elementID) { 
-       var prog = document.getElementById(elementID).value; 
-       var mypre = document.getElementById("output"); 
-       mypre.innerHTML = ''; 
-       Sk.pre = "output";
-       Sk.configure({output:outf, read:builtinRead}); 
-       //(Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'canvas';
-       eval(Sk.importMainWithBody("<stdin>", false, prog));
-    //   var myPromise = Sk.misceval.asyncToPromise(function() {
-    //       return Sk.importMainWithBody("<stdin>", false, prog, true);
-    //   });
-    //   myPromise.then(function(mod) {
-    //       console.log('success');
-    //   },
-    //       function(err) {
-    //       console.log(err.toString());
-    //   });
-    } 
+      // output functions are configurable.  This one just appends some text
+      // to a pre element.
+      function outf(text) { 
+          var mypre = document.getElementById("output"); 
+          mypre.innerHTML = mypre.innerHTML + text; 
+      } 
+      function builtinRead(x) {
+          if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+                  throw "File not found: '" + x + "'";
+          return Sk.builtinFiles["files"][x];
+      }
+      // Here's everything you need to run a python program in skulpt
+      // grab the code from your textarea
+      // get a reference to your pre element for output
+      // configure the output function
+      // call Sk.importMainWithBody()
+      function runit(elementID) { 
+         var prog = document.getElementById(elementID).value; 
+         var mypre = document.getElementById("output"); 
+         mypre.innerHTML = ''; 
+         Sk.pre = "output";
+         Sk.configure({output:outf, read:builtinRead}); 
+         //(Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'canvas';
+         eval(Sk.importMainWithBody("<stdin>", false, prog));
+      //   var myPromise = Sk.misceval.asyncToPromise(function() {
+      //       return Sk.importMainWithBody("<stdin>", false, prog, true);
+      //   });
+      //   myPromise.then(function(mod) {
+      //       console.log('success');
+      //   },
+      //       function(err) {
+      //       console.log(err.toString());
+      //   });
+      } 
     </script>
   </body>
 </html>

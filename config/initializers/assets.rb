@@ -9,6 +9,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Add custom asset folders to asset pipeline
+# From: https://stackoverflow.com/questions/23192298/add-a-new-folder-to-asset-path-in-rails-4
 Rails.application.config.assets.enabled = true
 Rails.application.config.assets.paths << Rails.root.join("app", "assets", "plugins", "frogger", "py")
 

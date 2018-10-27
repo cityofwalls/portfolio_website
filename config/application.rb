@@ -29,6 +29,7 @@ module PortfolioWebsite
     config.generators.system_tests = nil
     
     # Trying to add more directories to Asset Pipeline
+    # From: https://stackoverflow.com/questions/23192298/add-a-new-folder-to-asset-path-in-rails-4
     config.assets.paths << Rails.root.join("app", "assets", "python")
   end
 end
