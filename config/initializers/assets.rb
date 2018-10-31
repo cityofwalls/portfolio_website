@@ -19,13 +19,14 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "plugi
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 # Configure CSS assets here
+Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( connect_style.css )
 Rails.application.config.assets.precompile += %w( python_style.css )
 
 # Configure JS assets here
+# -- skulpt and codeskulptor js files for python.html.erb
 Rails.application.config.assets.precompile += %w( skulpt.min.js )
-# Rails.application.config.assets.precompile += %w( numeric-1.2.6.min.js )
-# Rails.application.config.assets.precompile += %w( jquery.flot.orderbars.min.js )
-# Rails.application.config.assets.precompile += %w( jquery.flot.min.js )
 Rails.application.config.assets.precompile += %w( codeskulptor-compressed.js )
-# Rails.application.config.assets.precompile += %w( codemirror-compressed.js )
+
+# -- home.js for home.html.erb
+Rails.application.config.assets.precompile += %w( home.js )
