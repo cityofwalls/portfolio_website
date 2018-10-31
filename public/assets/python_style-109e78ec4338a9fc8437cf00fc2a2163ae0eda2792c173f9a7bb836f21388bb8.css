@@ -10,7 +10,6 @@ p {
     color: red;
     font-family: cursive;
     font-size: x-large;
-    text-decoration: underline;
 }
 
 textarea {
@@ -19,19 +18,10 @@ textarea {
     color: limegreen;
     background-color: black;
     height: 30em;
-    width: 75em;
-}
-
-button {
-    width: 5em;
-    height: 2em;
-    border-color: blue;
-    background-color: darkgray;
-    font-family: serif;
+    width: 60em;
 }
 
 pre {
-    width: 30em;
     background-color: lightgray;
     color: blue;
 }

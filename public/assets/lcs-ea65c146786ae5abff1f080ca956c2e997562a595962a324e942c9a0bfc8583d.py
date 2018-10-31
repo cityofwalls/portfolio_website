@@ -47,9 +47,9 @@ def test():
     
 def printer(test):
     for test_case in test:
-        print("Input is", test_case[0])
-        print("Expected:", test_case[1])
-        print("Result:", hackerrankInString(test_case[0]))
-        print()
+        print "Input is", test_case[0] 
+        print "Expected:", test_case[1] 
+        print "Result:", hackerrankInString(test_case[0]) 
+        print
     
 test()

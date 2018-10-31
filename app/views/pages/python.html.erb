@@ -23,43 +23,52 @@
   <body>
       
     <form>
+      
       <!-- Loading text files into html. From: https://stackoverflow.com/questions/19020484/loading-txt-file-into-textarea-javascript -->
       <p>Frogger</p>
       <textarea id="frogger" class='frogger' readonly></textarea><br />
       <script> $( "#frogger" ).load( '/assets/frogger-6bb270ac84d800e788d1a7c3eb0bb54546f04ee9939fcdc759c0061f0110eade.py' ); </script>
       <button type='button' onclick="runit('frogger')">Run</button>
       <div>---</div>
+      
       <p>Flappy Bird</p>
       <textarea id="flappybird" class='flappybird' readonly></textarea><br />
       <script> $( "#flappybird" ).load( '/assets/flappybird-94e16d81a0ff7700b821b2e86a0528975d302b40cefc1aa98bb57124b31491cb.py' ); </script>
       <button type='button' onclick="runit('flappybird')">Run</button>
       <div>---</div>
+      
       <p>Maze Generator and Solver</p>
       <textarea id="maze" class='maze' readonly></textarea><br />
       <script> $( "#maze" ).load( '/assets/maze-90f0bdff79fb9ef651d420b1e90bc806bea02a88482029c51365fa612c3676d1.py' ); </script>
       <button type='button' onclick="runit('maze')">Run</button>
       <div>---</div>
+      
       <p>Pong!</p>
       <textarea id="pong" class='pong' readonly></textarea><br />
       <script> $( "#pong" ).load( '/assets/pong-b8597ac27b87d667d6c14818eb98d67b9b8346218ef56437e8176a459148eb0f.py' ); </script>
       <button type='button' onclick="runit('pong')">Run</button>
       <div>---</div>
+      
       <p>Blackjack</p>
       <textarea id="blackjack" class='blackjack' readonly></textarea><br />
       <script> $( "#blackjack" ).load( '/assets/blackjack-41e612f098b2ce539fa574be81214e4d4116dabd501402e6e3293a20c89769e2.py' ); </script>
       <button type='button' onclick="runit('blackjack')">Run</button>
       <div>---</div>
-      <p>Rock, Paper, Scissors, Lizard, Spock</p>
+      
+      <p>Rock, Paper, Scissors, Lizard, Spock using a Graph</p>
       <textarea id="rpsls" class='rpsls' readonly></textarea><br />
       <script> $( "#rpsls" ).load( '/assets/rpsls-58c63e3031b66b5b8ee0a854ec635a472b02f7f4276683575c10cd44f536c720.py' ); </script>
       <button type='button' onclick="runit('rpsls')">Run</button>
       <div>---</div>
+      
       <p>LCS w/ Dynamic Programming</p>
       <textarea id="lcs" class='lcs' readonly></textarea><br />
-      <script> $( "#lcs" ).load( '/assets/lcs-2ea9bc1da8c3d6c0f428a3a482f16a226e43cec250fe89846bea87c8db03eec0.py' ); </script>
+      <script> $( "#lcs" ).load( '/assets/lcs-ea65c146786ae5abff1f080ca956c2e997562a595962a324e942c9a0bfc8583d.py' ); </script>
       <button type='button' onclick="runit('lcs')">Run</button>
       <div>---</div>
+      
     </form>
+    
     <pre id="output"></pre> 
     <div id="canvas"></div>
     
