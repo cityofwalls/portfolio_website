@@ -2,8 +2,11 @@ body {
     background-color: black;
 }
 
-form {
-    text-align: center;
+h1 {
+    font-weight: bold;
+    font-family: monospace;
+    color: darkblue;
+    text-decoration: underline;
 }
 
 p {
@@ -19,7 +22,39 @@ textarea {
     color: limegreen;
     background-color: black;
     height: 30em;
-    width: 75em;
+    width: 70em;
+}
+
+.frogger {
+    width: 60em;
+}
+
+.flappybird {
+    width: 60em;
+}
+
+.maze {
+    width: 70em;
+}
+
+.pong {
+    width: 70em;
+}
+
+.blackjack {
+    width: 70em;
+}
+
+.rpsls {
+    width: 50em;
+}
+
+.lcs {
+    width: 50em;
+}
+
+text {
+    width: 50em;
 }
 
 button {
@@ -28,6 +63,13 @@ button {
     border-color: blue;
     background-color: darkgray;
     font-family: serif;
+}
+
+hr {
+    margin-top: 2em;
+    margin-left: 5em;
+    margin-right: 5em;
+    margin-bottom: 2em;
 }
 
 pre {
