@@ -20,6 +20,9 @@ class PagesController < ApplicationController
     def swift
     end
     
+    def ml
+    end
+    
     def music
     end
     

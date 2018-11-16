@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/java" => "pages#java"
   get "/go" => "pages#go"
   get "/swift" => "pages#swift"
+  get "/ml" => "pages#ml"
   
   get "/music" => "pages#music"
   get "/connect" => "pages#connect"
