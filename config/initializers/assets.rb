@@ -28,5 +28,11 @@ Rails.application.config.assets.precompile += %w( python_style.css )
 Rails.application.config.assets.precompile += %w( skulpt.min.js )
 Rails.application.config.assets.precompile += %w( codeskulptor-compressed.js )
 
+Rails.application.config.assets.precompile += %w( nn.js )
+Rails.application.config.assets.precompile += %w( matrix.js )
+Rails.application.config.assets.precompile += %w( sketch.js )
+Rails.application.config.assets.precompile += %w( bird.js )
+Rails.application.config.assets.precompile += %w( pipe.js )
+
 # -- home.js for home.html.erb
 Rails.application.config.assets.precompile += %w( home.js )
