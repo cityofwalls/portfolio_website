@@ -1,5 +1,6 @@
 /* global height, width, fill, stroke, ellipse, NeuralNetwork */
 
+
 class Bird {
     constructor() {
         this.y = height / 2;
@@ -73,3 +74,4 @@ class Bird {
         }
     }
 }
+;

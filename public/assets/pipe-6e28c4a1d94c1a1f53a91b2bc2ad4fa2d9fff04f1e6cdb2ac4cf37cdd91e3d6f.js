@@ -1,5 +1,6 @@
 /* global random, height, width, fill, rect, translate */
 
+
 class Pipe {
     constructor() {
         this.spacing = 175;
@@ -56,3 +57,4 @@ class Pipe {
         return this.x < -this.w;
     }
 }
+;

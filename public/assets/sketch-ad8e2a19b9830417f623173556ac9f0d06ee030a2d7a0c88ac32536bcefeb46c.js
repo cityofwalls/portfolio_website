@@ -1,5 +1,6 @@
 /* global background, createCanvas, Bird, key, Pipe, frameCount, nextGeneration */
 
+
 const TOTAL = 250;
 var birds = [];
 var pipes = [];
@@ -61,3 +62,4 @@ function draw() {
 //         bird.up();
 //     }
 // }
+;
