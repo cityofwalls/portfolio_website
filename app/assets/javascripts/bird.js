@@ -1,7 +1,8 @@
 /* global height, width, fill, stroke, ellipse, NeuralNetwork */
 
 class Bird {
-    constructor() {
+    // Passing in a NeuralNetwork will set a new bird's brain to a copy (copy()) of that NN. Otherwise, a new NN will be instantiated for the bird.
+    constructor(brain) {
         this.y = height / 2;
         this.x = 64;
     
@@ -12,8 +13,11 @@ class Bird {
         this.score = 0;
         this.fitness = 0;
         
-        // Inputs, Hidden Nodes, Outputs
-        this.brain = new NeuralNetwork(4, 4, 2);
+        if (brain) {
+            this.brain = brain.copy();
+        } else {
+            this.brain = new NeuralNetwork(4, 4, 2);    // Inputs, Hidden Nodes, Outputs
+        }
     }
     
     show() {
@@ -24,6 +28,10 @@ class Bird {
     
     up() {
         this.velocity += this.lift;
+    }
+    
+    mutate() {
+        this.brain.mutate(0.1);
     }
     
     // The bird will use its brain to decide if it should flap its wings or not

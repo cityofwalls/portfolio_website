@@ -2,12 +2,13 @@
 
 const TOTAL = 250;
 var birds = [];
+var savedBirds = [];
 var pipes = [];
 
 function setup() {
     var canvas = createCanvas(400, 600);
-    //canvas.center('vertical');
-    canvas.position(30, 120);
+    canvas.center('vertical');
+    //canvas.position(30, 120);
     
     // Set a population of birds equal to TOTAL
     for (var i = 0; i < TOTAL; i++) {
@@ -28,7 +29,7 @@ function draw() {
         // Loop backwards through birds array and see if that bird is hitting a pipe. If so, we splice that bird out of the array
         for (var j = birds.length - 1; j >= 0; j--) {
             if (pipes[i].hits(birds[j])) {
-                birds.splice(j, 1);
+                savedBirds.push(birds.splice(j, 1)[0]);
             }
         }
         
@@ -47,6 +48,7 @@ function draw() {
     // Check if entire generation is dead and repopulate
     if (birds.length === 0) {
         nextGeneration();
+        savedBirds = [];
     }
     
     if (frameCount % 100 == 0) {
