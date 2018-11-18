@@ -1,11 +1,13 @@
-/* global background, createCanvas, Bird, key, Pipe, frameCount, nextGeneration */
+/* global background, createCanvas, Bird, key, Pipe, frameCount, nextGeneration, center */
 
 const TOTAL = 250;
 var birds = [];
 var pipes = [];
 
 function setup() {
-    createCanvas(400, 600);
+    var canvas = createCanvas(400, 600);
+    //canvas.center('vertical');
+    canvas.position(30, 120);
     
     // Set a population of birds equal to TOTAL
     for (var i = 0; i < TOTAL; i++) {
