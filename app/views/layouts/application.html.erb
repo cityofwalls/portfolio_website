@@ -10,81 +10,83 @@
 
   <body>
     
-  <!-- Bootstrap Navbar will be at the top of every page. From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
-  <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark" role="navigation">
-    
-     <!-- me.png added as image to navbar. From above tutorial and https://www.youtube.com/watch?v=a3qmGdiLNAc -->
-    <a class="navbar-brand" href="/">
-      <%= image_tag('me.png', width: "30px") %>
-    </a>
-    
-    <a href="/">
-      <span class="navbar-text">Jesse Battalino</span>
-    </a>
-    
-    <!-- Commenting out navbar collapsing on xs and sm for now. -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
+    <div class='undo-css'>
+    <!-- Bootstrap Navbar will be at the top of every page. From Tutorial: https://medium.com/@mblevdev/adding-a-navbar-to-your-rails-app-with-bootstrap-a16cbd887f14 -->
+    <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark" role="navigation">
       
-    <ul class="navbar-nav mr-4">
+       <!-- me.png added as image to navbar. From above tutorial and https://www.youtube.com/watch?v=a3qmGdiLNAc -->
+      <a class="navbar-brand" href="/">
+        <%= image_tag('me.png', width: "30px") %>
+      </a>
       
-      <form class="form-inline">
+      <a href="/">
+        <span class="navbar-text">Jesse Battalino</span>
+      </a>
+      
+      <!-- Commenting out navbar collapsing on xs and sm for now. -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse justify-content-start" id="navbarSupportedContent">
         
-        <!-- active_class and dropdown_active_class are helper methods to allow the current page to be highlighted when that is the active page. These helper methods are defined in /app/helpers/application_helper.rb -->
-        <div style="padding-left: 20px">
-          <li class="<%= active_class(root_path) %>">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-        </div>
+      <ul class="navbar-nav mr-4">
         
-        <div style="padding-left: 20px">
-          <li class="<%= active_class(resume_path) %>">
-            <%= link_to "Resume", resume_path, class: "nav-link" %>
-          </li>
-        </div>
-        
-        <div style="padding-left: 20px">
-          <li class="<%= dropdown_active_class() %>">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
-              Code
-              <span class="caret"></span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdown_target">
-              <%= link_to "Python", python_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Java", java_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Go", go_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "iOS/Swift", swift_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Machine Learning", ml_path, class: "dropdown-item" %>
-            </div>
-          </li>
-        </div>
-        
-        <div style="padding-left: 20px">
-          <li class="<%= active_class(music_path) %>">
-            <%= link_to "Music", music_path, class: "nav-link" %>
-          </li>
-        </div>
-        
-        <div style="padding-left: 20px">
-          <li class="<%= active_class(connect_path) %>">
-            <%= link_to "Connect", connect_path, class: "nav-link" %>
-          </li>
-        </div>
-     
-      </form>
+        <form class="form-inline">
+          
+          <!-- active_class and dropdown_active_class are helper methods to allow the current page to be highlighted when that is the active page. These helper methods are defined in /app/helpers/application_helper.rb -->
+          <div style="padding-left: 20px">
+            <li class="<%= active_class(root_path) %>">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+          </div>
+          
+          <div style="padding-left: 20px">
+            <li class="<%= active_class(resume_path) %>">
+              <%= link_to "Resume", resume_path, class: "nav-link" %>
+            </li>
+          </div>
+          
+          <div style="padding-left: 20px">
+            <li class="<%= dropdown_active_class() %>">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
+                Code
+                <span class="caret"></span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                <%= link_to "Python", python_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Java", java_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Go", go_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "iOS/Swift", swift_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Machine Learning", ml_path, class: "dropdown-item" %>
+              </div>
+            </li>
+          </div>
+          
+          <div style="padding-left: 20px">
+            <li class="<%= active_class(music_path) %>">
+              <%= link_to "Music", music_path, class: "nav-link" %>
+            </li>
+          </div>
+          
+          <div style="padding-left: 20px">
+            <li class="<%= active_class(connect_path) %>">
+              <%= link_to "Connect", connect_path, class: "nav-link" %>
+            </li>
+          </div>
+       
+        </form>
+      
+      </ul>
+      
+    </nav>
+    </div>
     
-    </ul>
-    
-  </nav>
-  
-  <%= yield %>
+    <%= yield %>
   
   </body>
 
