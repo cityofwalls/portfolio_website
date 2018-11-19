@@ -7,7 +7,8 @@ var pipes = [];
 
 function setup() {
     var canvas = createCanvas(400, 600);
-    canvas.parent('jumbo-canvas');
+    //canvas.parent('jumbo-canvas');
+    canvas.center("horizontal");
     
     // Set a population of birds equal to TOTAL
     for (var i = 0; i < TOTAL; i++) {
