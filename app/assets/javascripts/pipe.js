@@ -1,13 +1,10 @@
-/* global random, height, width, fill, rect, translate */
+/* global random, height, width, fill, rect */
 
 class Pipe {
     constructor() {
         this.spacing = 175;
         this.top = random(height / 6, 2 / 3 * height);
         this.bottom = height - (this.top + this.spacing);
-        
-        //this.top = random(height / 6, height / 2.5);
-        //this.bottom = random(height / 6, height / 2.5);
 
         this.x = width;
         this.w = 80;

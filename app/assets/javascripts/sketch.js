@@ -7,8 +7,6 @@ var pipes = [];
 
 function setup() {
     var canvas = createCanvas(400, 600);
-    //canvas.parent('jumbo-canvas');
-    //canvas.center("horizontal");
     
     // Set a population of birds equal to TOTAL
     for (var i = 0; i < TOTAL; i++) {
@@ -26,7 +24,7 @@ function draw() {
         pipes[i].show();
         pipes[i].update();
         
-        // Loop backwards through birds array and see if that bird is hitting a pipe. If so, we splice that bird out of the array
+        // Loop backwards through birds array and see if that bird is hitting a pipe. If so, we splice that bird out of the array and push it into savedBirds array
         for (var j = birds.length - 1; j >= 0; j--) {
             if (pipes[i].hits(birds[j])) {
                 savedBirds.push(birds.splice(j, 1)[0]);
@@ -45,7 +43,7 @@ function draw() {
         bird.update();
     }
     
-    // Check if entire generation is dead and repopulate
+    // Check if entire generation is dead and repopulate, reset savedBirds array
     if (birds.length === 0) {
         nextGeneration();
         savedBirds = [];
@@ -56,6 +54,7 @@ function draw() {
     }
 }
 
+// User input to control bird (mouse click or space bar). Removed for ML project
 // function mousePressed() {
 //     bird.up();
 // }

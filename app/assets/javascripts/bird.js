@@ -52,10 +52,11 @@ class Bird {
         // Normalizing data to be between 0 and 1... divide by height or width as appropriate 
         let inputs = [this.y / height, closest.top / height, closest.bottom / height, closest.x / width];
         
-        // predict expects and array of values that make up inputs, and returns an array of values (even in the case of a single output)
+        // predict expects an array of values that make up inputs, and returns an array of values (even in the case of a single output)
         let output = this.brain.predict(inputs);
         
         // The result of the prediction in this case is a single bit (0 or 1), and this is used to decide of the bird will flap its wings or not
+        // UPDATE: number of outputs changed to 2, the bird compares the two outputs to make a decision on whether to flap its wings or not
         if (output[0] > output[1]) {
             this.up();
         }
