@@ -1,4 +1,4 @@
-/* global Matrix */
+/* global Matrix, random, randomGaussian */
 // Other techniques for learning
 
 class ActivationFunction {
@@ -173,7 +173,18 @@ class NeuralNetwork {
     this.bias_h.map(func);
     this.bias_o.map(func);
   }
-
+  
+  // This is how we adjust weights ever so slightly
+  mutate(x) {
+    if (random(1) < 0.1) {
+      var offset = randomGaussian() * 0.5;
+      // var offset = random(-0.1, 0.1);
+      var newx = x + offset;
+      return newx;
+    } else {
+      return x;
+    }
+  }
 
 
 }

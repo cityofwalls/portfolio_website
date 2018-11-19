@@ -1,5 +1,6 @@
 /* global TOTAL, birds, Bird, random, savedBirds */
 
+
 function nextGeneration() {
     // Get the fitness of the previous generation
     calculateFitness();
@@ -32,3 +33,4 @@ function calculateFitness() {
         bird.fitness = bird.score / sum;
     }
 }
+;

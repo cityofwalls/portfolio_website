@@ -4,6 +4,7 @@ const TOTAL = 250;
 var birds = [];
 var savedBirds = [];
 var pipes = [];
+let counter = 0;
 
 function setup() {
     var canvas = createCanvas(400, 600);
@@ -12,13 +13,14 @@ function setup() {
     for (var i = 0; i < TOTAL; i++) {
         birds[i] = new Bird();
     }
-    
-    // Push first pipe to pipe array
-    pipes.push(new Pipe());
 }
 
 function draw() {
     background(0);
+    
+    if (counter % 75 == 0) {
+        pipes.push(new Pipe());
+    }
     
     for (var i = pipes.length - 1; i >= 0; i--) {
         pipes[i].show();
@@ -45,13 +47,14 @@ function draw() {
     
     // Check if entire generation is dead and repopulate, reset savedBirds array
     if (birds.length === 0) {
+        counter = 0;
         nextGeneration();
         savedBirds = [];
-    }
-    
-    if (frameCount % 100 == 0) {
+        pipes = [];
         pipes.push(new Pipe());
     }
+    
+    counter++;
 }
 
 // User input to control bird (mouse click or space bar). Removed for ML project

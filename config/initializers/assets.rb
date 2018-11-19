@@ -34,6 +34,7 @@ Rails.application.config.assets.precompile += %w( matrix.js )
 Rails.application.config.assets.precompile += %w( sketch.js )
 Rails.application.config.assets.precompile += %w( bird.js )
 Rails.application.config.assets.precompile += %w( pipe.js )
+Rails.application.config.assets.precompile += %w( ga.js )
 
 # -- home.js for home.html.erb
 Rails.application.config.assets.precompile += %w( home.js )

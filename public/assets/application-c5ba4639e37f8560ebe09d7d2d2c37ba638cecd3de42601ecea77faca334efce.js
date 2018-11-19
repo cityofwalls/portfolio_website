@@ -19260,8 +19260,9 @@ function nextGeneration() {
 
 // Return a bird with probability mapped to its fitness
 function pickOne() {
-    let child = random(savedBirds); // Not using fitness yet, testing out with random selection
-    //child.mutate(0.1);  // child has a 10% mutation chance
+    let bird = random(savedBirds); // Not using fitness yet, testing out with random selection
+    let child = new Bird(bird.brain);   // Create a child that is a copy of the selected bird's brain and mutate. This is where we could implement * Crossover *
+    child.mutate();
     return child;
 }
 
@@ -19482,7 +19483,7 @@ if (typeof module !== 'undefined') {
   module.exports = Matrix;
 }
 ;
-/* global Matrix */
+/* global Matrix, random, randomGaussian */
 // Other techniques for learning
 
 class ActivationFunction {
@@ -19657,7 +19658,18 @@ class NeuralNetwork {
     this.bias_h.map(func);
     this.bias_o.map(func);
   }
-
+  
+  // This is how we adjust weights ever so slightly
+  mutate(x) {
+    if (random(1) < 0.1) {
+      var offset = randomGaussian() * 0.5;
+      // var offset = random(-0.1, 0.1);
+      var newx = x + offset;
+      return newx;
+    } else {
+      return x;
+    }
+  }
 
 
 }
@@ -19733,6 +19745,7 @@ const TOTAL = 250;
 var birds = [];
 var savedBirds = [];
 var pipes = [];
+let counter = 0;
 
 function setup() {
     var canvas = createCanvas(400, 600);
@@ -19741,13 +19754,14 @@ function setup() {
     for (var i = 0; i < TOTAL; i++) {
         birds[i] = new Bird();
     }
-    
-    // Push first pipe to pipe array
-    pipes.push(new Pipe());
 }
 
 function draw() {
     background(0);
+    
+    if (counter % 75 == 0) {
+        pipes.push(new Pipe());
+    }
     
     for (var i = pipes.length - 1; i >= 0; i--) {
         pipes[i].show();
@@ -19774,13 +19788,14 @@ function draw() {
     
     // Check if entire generation is dead and repopulate, reset savedBirds array
     if (birds.length === 0) {
+        counter = 0;
         nextGeneration();
         savedBirds = [];
-    }
-    
-    if (frameCount % 100 == 0) {
+        pipes = [];
         pipes.push(new Pipe());
     }
+    
+    counter++;
 }
 
 // User input to control bird (mouse click or space bar). Removed for ML project
