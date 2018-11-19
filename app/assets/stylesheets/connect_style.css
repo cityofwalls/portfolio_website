@@ -1,13 +1,24 @@
 body {
-    background-color: black;
+    background-color: MISTYROSE;
 }
 
 h1 {
+    margin-top: 5px;
     font-size: 3em;
     text-align: center;
     font-family: 'Galada', cursive;
-    border-bottom: 2px solid crimson;
-    color: gray;
+    border-bottom: 2px solid INDIANRED;
+    color: DARKCYAN;
+    background-color: BLACK;
+}
+
+h2 {
+    font-family: 'Galada', cursive;
+    color: MIDNIGHTBLUE;
+}
+
+.widget {
+    margin: 10px 20px 10px 20px;
 }
 
 .insta {
