@@ -19,6 +19,7 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "plugi
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 # Configure CSS assets here
+Rails.application.config.assets.precompile += %w( application.scss )
 Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( connect_style.css )
 Rails.application.config.assets.precompile += %w( python_style.css )
