@@ -20,195 +20,199 @@
     
   </head>
   
-  <body>
+  <body style='background-color:THISTLE; display:flex; justify-content:left'>
     <!-- Loading text files into html. From: https://stackoverflow.com/questions/19020484/loading-txt-file-into-textarea-javascript -->
     
-    <h1>Python Projects and Source Code</h1>
+    <div id='jumbo-canvas' class='jumbotron text-center' style='margin: 0px 15px 10px 15px;'>
     
-    <!-- Frogger Row -->
-    <p>Frogger</p>
-    
+      <h1>Python Projects and Source Code</h1>
+      
+      <!-- Frogger Row -->
+      <p>Frogger</p>
+      
+        <div class='row'>
+          
+          <div class='container col-md-12' style='margin: 5px 0px 10px 0px;'>
+            
+            <!-- Description for Frogger code -->
+            <text>Frogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger Stuff</text>
+          
+          </div>
+          
+          <div class='container col-md-12'>
+            
+            <textarea id="frogger" class='frogger' readonly></textarea><br />
+            
+            <script> $( "#frogger" ).load( '/assets/frogger-6bb270ac84d800e788d1a7c3eb0bb54546f04ee9939fcdc759c0061f0110eade.py' ); </script>
+            
+            <button type='button' onclick="runit('frogger')">Run</button>
+            
+          </div>
+          
+        </div>
+      
+      <hr color='darkblue'>
+      
+      <!-- Flappy Row -->
+      <p>Flappy Bird</p>
+        
       <div class='row'>
         
-        <div class='container col-md-4'>
+        <div class='container col-md-12' style='margin: 5px 0px 10px 0px;'>
           
-          <!-- Description for Frogger code -->
-          <text>Frogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger StuffFrogger Stuff</text>
-        
-        </div>
-        
-        <div class='container col-md-8'>
-          
-          <textarea id="frogger" class='frogger' readonly></textarea><br />
-          
-          <script> $( "#frogger" ).load( '/assets/frogger-6bb270ac84d800e788d1a7c3eb0bb54546f04ee9939fcdc759c0061f0110eade.py' ); </script>
-          
-          <button type='button' onclick="runit('frogger')">Run</button>
+          <!-- Description of Flappy Code -->
+          <text>Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy </text>
           
         </div>
         
+        <div class='container col-md-12'>
+          
+          <textarea id="flappybird" class='flappybird' readonly></textarea><br />
+          
+          <script> $( "#flappybird" ).load( '/assets/flappybird-94e16d81a0ff7700b821b2e86a0528975d302b40cefc1aa98bb57124b31491cb.py' ); </script>
+          
+          <button type='button' onclick="runit('flappybird')">Run</button>
+          
+        </div>
+        
       </div>
+        
+      <hr color='darkblue'>
+      
+      <!-- Maze Row -->
+      <p>Maze Generator and Solver</p>
+      
+      <div class='row'>
+          
+        <div class='container col-md-12' style='margin: 5px 0px 10px 0px;'>
+          
+          <!-- Maze Description -->
+          <text>Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze </text>
+          
+        </div>
+        
+        <div class='container col-md-12'>
+          
+          <textarea id="maze" class='maze' readonly></textarea><br />
+          
+          <script> $( "#maze" ).load( '/assets/maze-90f0bdff79fb9ef651d420b1e90bc806bea02a88482029c51365fa612c3676d1.py' ); </script>
+          
+          <button type='button' onclick="runit('maze')">Run</button>
+          
+        </div>
+        
+      </div>
+      
+      <hr color='darkblue'>
+      
+      <!-- Pong! Row -->
+      <p>Pong!</p>
+      
+      <div class='row'>
+        
+        <div class='col-md-12' style='margin: 5px 0px 10px 0px;'>
+          
+          <!-- Pong! Description -->
+          <text>Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! </text>
+          
+        </div>
+        
+        <div class='col-md-12'>
+          
+          <textarea id="pong" class='pong' readonly></textarea><br />
+          
+          <script> $( "#pong" ).load( '/assets/pong-b8597ac27b87d667d6c14818eb98d67b9b8346218ef56437e8176a459148eb0f.py' ); </script>
+          
+          <button type='button' onclick="runit('pong')">Run</button>
+          
+        </div>
+        
+      </div>
+      
+      <hr color='darkblue'>
+      
+      <!-- Blackjack Row -->
+      <p>Blackjack</p>
+      
+      <div class='row'>
+        
+        <div class='container col-md-12' style='margin: 5px 0px 10px 0px;'>
+          
+          <!-- Blackjack Description -->
+          <text>Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack </text>
+          
+        </div>
+        
+        <div class='container col-md-12'>
+      
+          <textarea id="blackjack" class='blackjack' readonly></textarea><br />
+          
+          <script> $( "#blackjack" ).load( '/assets/blackjack-41e612f098b2ce539fa574be81214e4d4116dabd501402e6e3293a20c89769e2.py' ); </script>
+          
+          <button type='button' onclick="runit('blackjack')">Run</button>
+        
+        </div>
+        
+      </div>
+      
+      <hr color='darkblue'>
+      
+      <!-- RPSLS Row -->
+      <p>Rock, Paper, Scissors, Lizard, Spock using a Graph</p>
+      
+      <div class='row'>
+        
+        <div class='col-md-12' style='margin: 5px 0px 10px 0px;'>
+          
+          <!-- RPSLS Description -->
+          <text>RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS </text>
+          
+        </div>
+      
+        <div class='col-md-12'>
+      
+          <textarea id="rpsls" class='rpsls' readonly></textarea><br />
+          
+          <script> $( "#rpsls" ).load( '/assets/rpsls-58c63e3031b66b5b8ee0a854ec635a472b02f7f4276683575c10cd44f536c720.py' ); </script>
+          
+          <button type='button' onclick="runit('rpsls')">Run</button>
+          
+        </div>
+        
+      </div>
+      
+      <hr color='darkblue'>
+      
+      <!-- LCS Row -->
+      <p>LCS w/ Dynamic Programming</p>
+      
+      <div class='row'>
+        
+        <div class='col-md-12' style='margin: 5px 0px 10px 0px;'>
+          
+          <!-- LCS Description -->
+          <text>LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog </text>
+          
+        </div>
+        
+        <div class='col-md-12'>
+        
+          <textarea id="lcs" class='lcs' readonly></textarea><br />
+          
+          <script> $( "#lcs" ).load( '/assets/lcs-7b71b4fd1c6d01ef5265fea3eb336ee17879c67df915eb34226e565a8b76723c.py' ); </script>
+          
+          <button type='button' onclick="runit('lcs')">Run</button>
+        
+        </div>
+        
+      </div>
+      
+      <hr color='darkblue'>
+      
+      <pre id="output"></pre> 
+      <div id="canvas"></div>
     
-    <hr color='darkblue'>
-    
-    <!-- Flappy Row -->
-    <p>Flappy Bird</p>
-      
-    <div class='row'>
-      
-      <div class='container col-md-4'>
-        
-        <!-- Description of Flappy Code -->
-        <text>Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy Flappy </text>
-        
-      </div>
-      
-      <div class='container col-md-8'>
-        
-        <textarea id="flappybird" class='flappybird' readonly></textarea><br />
-        
-        <script> $( "#flappybird" ).load( '/assets/flappybird-94e16d81a0ff7700b821b2e86a0528975d302b40cefc1aa98bb57124b31491cb.py' ); </script>
-        
-        <button type='button' onclick="runit('flappybird')">Run</button>
-        
-      </div>
-      
     </div>
-      
-    <hr color='darkblue'>
-    
-    <!-- Maze Row -->
-    <p>Maze Generator and Solver</p>
-    
-    <div class='row'>
-        
-      <div class='container col-md-4'>
-        
-        <!-- Maze Description -->
-        <text>Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze Maze </text>
-        
-      </div>
-      
-      <div class='container col-md-8'>
-        
-        <textarea id="maze" class='maze' readonly></textarea><br />
-        
-        <script> $( "#maze" ).load( '/assets/maze-90f0bdff79fb9ef651d420b1e90bc806bea02a88482029c51365fa612c3676d1.py' ); </script>
-        
-        <button type='button' onclick="runit('maze')">Run</button>
-        
-      </div>
-      
-    </div>
-    
-    <hr color='darkblue'>
-    
-    <!-- Pong! Row -->
-    <p>Pong!</p>
-    
-    <div class='row'>
-      
-      <div class='col-md-4'>
-        
-        <!-- Pong! Description -->
-        <text>Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! Pong! </text>
-        
-      </div>
-      
-      <div class='col-md-8'>
-        
-        <textarea id="pong" class='pong' readonly></textarea><br />
-        
-        <script> $( "#pong" ).load( '/assets/pong-b8597ac27b87d667d6c14818eb98d67b9b8346218ef56437e8176a459148eb0f.py' ); </script>
-        
-        <button type='button' onclick="runit('pong')">Run</button>
-        
-      </div>
-      
-    </div>
-    
-    <hr color='darkblue'>
-    
-    <!-- Blackjack Row -->
-    <p>Blackjack</p>
-    
-    <div class='row'>
-      
-      <div class='container col-md-4'>
-        
-        <!-- Blackjack Description -->
-        <text>Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack Blackjack </text>
-        
-      </div>
-      
-      <div class='container col-md-8'>
-    
-        <textarea id="blackjack" class='blackjack' readonly></textarea><br />
-        
-        <script> $( "#blackjack" ).load( '/assets/blackjack-41e612f098b2ce539fa574be81214e4d4116dabd501402e6e3293a20c89769e2.py' ); </script>
-        
-        <button type='button' onclick="runit('blackjack')">Run</button>
-      
-      </div>
-      
-    </div>
-    
-    <hr color='darkblue'>
-    
-    <!-- RPSLS Row -->
-    <p>Rock, Paper, Scissors, Lizard, Spock using a Graph</p>
-    
-    <div class='row'>
-      
-      <div class='col-md-4'>
-        
-        <!-- RPSLS Description -->
-        <text>RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS RPSLS </text>
-        
-      </div>
-    
-      <div class='col-md-8'>
-    
-        <textarea id="rpsls" class='rpsls' readonly></textarea><br />
-        
-        <script> $( "#rpsls" ).load( '/assets/rpsls-58c63e3031b66b5b8ee0a854ec635a472b02f7f4276683575c10cd44f536c720.py' ); </script>
-        
-        <button type='button' onclick="runit('rpsls')">Run</button>
-        
-      </div>
-      
-    </div>
-    
-    <hr color='darkblue'>
-    
-    <!-- LCS Row -->
-    <p>LCS w/ Dynamic Programming</p>
-    
-    <div class='row'>
-      
-      <div class='col-md-4'>
-        
-        <!-- LCS Description -->
-        <text>LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog LCS Dynamic Prog </text>
-        
-      </div>
-      
-      <div class='col-md-8'>
-      
-        <textarea id="lcs" class='lcs' readonly></textarea><br />
-        
-        <script> $( "#lcs" ).load( '/assets/lcs-7b71b4fd1c6d01ef5265fea3eb336ee17879c67df915eb34226e565a8b76723c.py' ); </script>
-        
-        <button type='button' onclick="runit('lcs')">Run</button>
-      
-      </div>
-      
-    </div>
-    
-    <hr color='darkblue'>
-    
-    <pre id="output"></pre> 
-    <div id="canvas"></div>
     
     <script>
     
