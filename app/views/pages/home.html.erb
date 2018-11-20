@@ -2,19 +2,49 @@
 <html>
   <head>
     
+    <meta charset="utf-8">
+    
+    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Patrick+Hand" rel="stylesheet">
+    
     <title>Home | Jesse Battalino</title>
     
   </head>
   
   <body style='background-color:THISTLE'>
     
-    <div id='jumbo-canvas' class='jumbotron text-center' style='margin: 0px 15px 10px 15px;'>
+    <div id='jumbo-canvas' class='jumbotron text-left' style='margin: 0px 15px 10px 15px; width: 100%; height: 100%; background-color:GHOSTWHITE;'>
+      
+      <%= image_tag('AlbanyBulb2.JPG', width: '65%', height: '65%') %>
       
       <h1>Jesse Battalino</h1>
       
       <p>
-        This is the home page for someone.
+        Computer Programmer - Software Developer - Data Scientist - Composer - Musician
       </p>
+      
+      <p>Pronouns: He/Him/His</p>
+      
+      <hr />
+      
+      <%= image_tag('me-full.jpg', width: '50%', height: '50%') %>
+      
+      <h5>Master of Arts in Interdisciplinary Computer Science</h5>
+      
+      <h6>Mills College</h6>
+      
+      <p>May 2019</p>
+      
+      <hr />
+      
+      <%= image_tag('Ramen.JPG', width: '50%', height: '50%') %>
+      
+      <h5>Bachelor of Music in Music Composition and Theory</h5>
+      
+      <h6>San Francisco State University</h6>
+      
+      <p>May 2013</p>
       
     </div>
     
