@@ -21,8 +21,9 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "plugi
 # Configure CSS assets here
 Rails.application.config.assets.precompile += %w( application.scss )
 Rails.application.config.assets.precompile += %w( home.css )
-Rails.application.config.assets.precompile += %w( connect_style.css )
+Rails.application.config.assets.precompile += %w( resume_style.css )
 Rails.application.config.assets.precompile += %w( python_style.css )
+Rails.application.config.assets.precompile += %w( connect_style.css )
 
 # Configure JS assets here
 # -- skulpt and codeskulptor js files for python.html.erb
