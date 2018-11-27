@@ -1,0 +1,18 @@
+h1 {
+    font-family: 'Helvetica';
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+h6 {
+    font-family: 'Helvetica';
+    font-size: 14pt;
+}
+
+p {
+    font-size: 11pt;
+}
+
+strong {
+    font-size: 12pt;
+}

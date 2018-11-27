@@ -5,22 +5,33 @@ body {
 h1 {
     font-weight: bold;
     font-family: monospace;
-    color: darkblue;
-    text-decoration: underline;
+    color: STEELBLUE;
+    font-size: 35pt;
+}
+
+h6 {
+    color: FIREBRICK;
+    font-family: cursive;
+    font-size: 27pt;
 }
 
 p {
-    color: red;
-    font-family: cursive;
-    font-size: x-large;
-    text-decoration: underline;
+    margin: 2em;
+    font-size: 11pt;
+    color: DIMGRAY;
+}
+
+text {
+    width: 50em;
+    font-size: 11pt;
+    margin-bottom: 10em;
 }
 
 textarea {
     border-bottom-style: double;
     font-family: monospace;
-    color: limegreen;
-    background-color: black;
+    color: CHARTREUSE;
+    background-color: BLACK;
     height: 30em;
     width: 70em;
 }
@@ -53,10 +64,6 @@ textarea {
     width: 50em;
 }
 
-text {
-    width: 50em;
-}
-
 button {
     width: 5em;
     height: 2em;
@@ -73,7 +80,10 @@ hr {
 }
 
 pre {
+    border-color: CHARTREUSE;
+    margin-left: 28%;
+    margin-right: 25%;
     width: 30em;
-    background-color: lightgray;
-    color: blue;
+    background-color: BLACK;
+    color: DARKTURQUOISE;
 }
