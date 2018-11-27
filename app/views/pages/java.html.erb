@@ -4,11 +4,47 @@
     <title>Java Projects | Jesse Battalino</title>
   </head>
   <body style='background-color:SIENNA'>
+    
     <div id='jumbo-canvas' class='jumbotron text-center' style='margin: 0px 15px 10px 15px; width: 100%; height: 100%;'>
-      <h1>Java Stuff</h1>
+      <h1>Java Projects</h1>
+      <hr color='ORANGERED'>
+      
+      <h3 style='margin:1em'><strong>Two Sorts</strong></h3>
       <p>
-        will go here.
+        Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info Two Sorts info 
       </p>
+      <div class='row'>
+        <!-- Two Sorts Pics -->
+        <div class='container col-sm-3'>
+          <%= image_tag('TwoSorts1.png', width: '100%', height: '90%') %>
+        </div>
+        <div class='container col-sm-3'>
+          <%= image_tag('TwoSorts2.png', width: '100%', height: '90%') %>
+        </div>
+        <div class='container col-sm-3'>
+          <%= image_tag('TwoSorts3.png', width: '100%', height: '90%') %>
+        </div>
+        <div class='container col-sm-3'>
+          <%= image_tag('TwoSorts4.png', width: '100%', height: '90%') %>
+        </div>
+        <!-- Two Sorts code -->
+        <div class='col-sm-12'>
+          <textarea id="TwoSorts" class='TwoSorts' style='width:40em; height:35em;' readonly></textarea>
+          <br />
+          <script> 
+          $( "#TwoSorts" ).load( '/assets/TwoSorts-727b269bf7d42edf2336cdb748a8ee3dbbc3c176bd44d9326e2b5a9aa0d2db5d.java' ); 
+          </script>
+        </div>
+        <div class='col-sm-12'>
+          <textarea id="TwoSortsPanel" class='TwoSortsPanel' style='width:70em; height:35em;' readonly></textarea>
+          <br />
+          <script> 
+          $( "#TwoSortsPanel" ).load( '/assets/TwoSortsPanel-4cc5637453f0e64bc4220ebee3556d9c3f86a3ead947ad4e6c96e2b337c5acbb.java' ); 
+          </script>
+        </div>
+      </div>
+      <hr color='ORANGERED'>
+      
     </div>
   </body>
 </html>
