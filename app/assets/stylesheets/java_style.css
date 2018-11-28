@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    font-weight: bold;
+    font-family: monospace;
+    color: STEELBLUE;
+    font-size: 35pt;
+}
+
+h6 {
+    margin: 1em;
+    color: FIREBRICK;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 27pt;
+}
+
+p {
+    margin: 2em;
+    font-size: 11pt;
+    color: DIMGRAY;
+}
+
+textarea {
+    border-bottom-style: double;
+    font-family: monospace;
+    color: MIDNIGHTBLUE;
+    background-color: GHOSTWHITE;
+    font-size: 9pt;
+}

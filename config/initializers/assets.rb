@@ -23,6 +23,7 @@ Rails.application.config.assets.precompile += %w( application.scss )
 Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( resume_style.css )
 Rails.application.config.assets.precompile += %w( python_style.css )
+Rails.application.config.assets.precompile += %w( java_style.css )
 Rails.application.config.assets.precompile += %w( connect_style.css )
 
 # Configure JS assets here
