@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "/go" => "pages#go"
   get "/swift" => "pages#swift"
   get "/ml" => "pages#ml"
+  get "/flappy" => "pages#flappy"
   
   get "/music" => "pages#music"
   get "/connect" => "pages#connect"

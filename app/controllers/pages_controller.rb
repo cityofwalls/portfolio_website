@@ -23,6 +23,9 @@ class PagesController < ApplicationController
     def ml
     end
     
+    def flappy
+    end
+    
     def music
     end
     

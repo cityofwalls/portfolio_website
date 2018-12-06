@@ -21,9 +21,18 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "plugi
 # Configure CSS assets here
 Rails.application.config.assets.precompile += %w( application.scss )
 Rails.application.config.assets.precompile += %w( home.css )
+
 Rails.application.config.assets.precompile += %w( resume_style.css )
+
 Rails.application.config.assets.precompile += %w( python_style.css )
 Rails.application.config.assets.precompile += %w( java_style.css )
+Rails.application.config.assets.precompile += %w( go_style.css )
+Rails.application.config.assets.precompile += %w( swift_style.css )
+Rails.application.config.assets.precompile += %w( ml_style.css )
+Rails.application.config.assets.precompile += %w( flappy_style.css )
+
+Rails.application.config.assets.precompile += %w( music_style.css )
+
 Rails.application.config.assets.precompile += %w( connect_style.css )
 
 # Configure JS assets here
@@ -33,10 +42,10 @@ Rails.application.config.assets.precompile += %w( codeskulptor-compressed.js )
 
 Rails.application.config.assets.precompile += %w( nn.js )
 Rails.application.config.assets.precompile += %w( matrix.js )
-Rails.application.config.assets.precompile += %w( sketch.js )
+Rails.application.config.assets.precompile += %w( sketch_flappy.js )
 Rails.application.config.assets.precompile += %w( bird.js )
 Rails.application.config.assets.precompile += %w( pipe.js )
-Rails.application.config.assets.precompile += %w( ga.js )
+Rails.application.config.assets.precompile += %w( ga_flappy.js )
 
 # -- home.js for home.html.erb
 Rails.application.config.assets.precompile += %w( home.js )
