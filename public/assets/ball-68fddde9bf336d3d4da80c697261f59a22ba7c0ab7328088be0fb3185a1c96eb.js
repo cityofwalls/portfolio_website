@@ -1,5 +1,6 @@
 /* global WIDTH HEIGHT fill ellipse */
 
+
 class Ball {
     constructor() {
         this.x = WIDTH / 2;
@@ -38,3 +39,4 @@ class Ball {
         }
     }
 }
+;

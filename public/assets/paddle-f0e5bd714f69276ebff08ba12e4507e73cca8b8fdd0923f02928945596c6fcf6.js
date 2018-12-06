@@ -1,5 +1,6 @@
 /* global WIDTH HEIGHT PAD_WIDTH rect fill */
 
+
 class Paddle {
     constructor(x) {
         this.w = PAD_WIDTH;
@@ -60,3 +61,4 @@ class Paddle {
         }
     }
 }
+;

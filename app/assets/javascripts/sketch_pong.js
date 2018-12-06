@@ -1,4 +1,4 @@
-/* global createCanvas background line stroke strokeWeight Paddle keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW */
+/* global createCanvas background line stroke strokeWeight Paddle keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW Ball */
 
 const WIDTH = 400;
 const HEIGHT = 400;
@@ -6,9 +6,11 @@ const PAD_WIDTH = 20;
 const NUM_PADDLES = 2;
 
 var paddles = [];
+var ball = new Ball();
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);
+    
     for (var i = 0; i < NUM_PADDLES; i++) {
         if (i % 2 === 0) {
             paddles.push(new Paddle(0));
@@ -16,8 +18,6 @@ function setup() {
             paddles.push(new Paddle(WIDTH - PAD_WIDTH));
         }
     }
-    
-    //console.log(paddles);
 }
 
 function draw() {
@@ -32,9 +32,21 @@ function draw() {
     line(PAD_WIDTH, 0, PAD_WIDTH, HEIGHT);
     line(WIDTH - PAD_WIDTH, 0, WIDTH - PAD_WIDTH, HEIGHT);
     
+    // Paddle movement
     for (var i = 0; i < paddles.length; i++) {
         paddles[i].update();
         paddles[i].show();
+        paddles[i].stayOnScreen();
+    }
+    
+    // Ball movement
+    ball.update();
+    ball.show();
+    ball.collide();
+    
+    // Ball hitting a Paddle?
+    for (var i = 0; i < paddles.length; i++) {
+        paddles[i].collide(ball);
     }
 }
 

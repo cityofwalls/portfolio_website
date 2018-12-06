@@ -18518,6 +18518,48 @@ return Popper;
 
 
 
+/* global WIDTH HEIGHT fill ellipse */
+
+
+class Ball {
+    constructor() {
+        this.x = WIDTH / 2;
+        this.y = HEIGHT / 2;
+        this.r = 30;
+        this.v = [0, 0];
+        
+        if (Math.random(1) < 0.5) {
+            this.v[0] = 2;
+        } else {
+            this.v[0] = -2;
+        }
+        
+        if (Math.random(1) < 0.5) {
+            this.v[1] = 2;
+        } else {
+            this.v[1] = -2;
+        }
+    }
+    
+    show() {
+        fill(255);
+        ellipse(this.x, this.y, this.r);
+    }
+    
+    update() {
+        this.x += this.v[0];
+        this.y += this.v[1];
+    }
+    
+    collide() {
+        if (this.y - (this.r / 2) < 0) {
+            this.v[1] *= -1;
+        } else if (this.y + (this.r / 2) > HEIGHT) {
+            this.v[1] *= -1;
+        }
+    }
+}
+;
 /* global height, width, fill, stroke, ellipse, NeuralNetwork */
 
 
@@ -19701,6 +19743,7 @@ class Paddle {
         this.x = x;
         this.y = HEIGHT / 2 - (this.h / 2);
         this.v = 0;
+        this.a = 3;
     }
     
     show() {
@@ -19713,15 +19756,44 @@ class Paddle {
     }
     
     up() {
-        this.v = -2;
+        this.v -= this.a;
     }
     
     down() {
-        this.v = 2;
+        this.v += this.a;
     }
     
     stop() {
         this.v = 0;
+    }
+    
+    stayOnScreen() {
+        if (this.y < 0) {
+            this.y = 0;
+            this.v = 0;
+        }
+        if (this.y > HEIGHT - this.h) {
+            this.y = HEIGHT - this.h;
+            this.v = 0;
+        }
+    }
+    
+    collide(b) {
+        // Find which side of the board the paddle is on.
+        // If paddleSide is true, the paddle is on the left. Otherwise it's on the right
+        var paddleSide = this.x < WIDTH / 2;
+        
+        if (b.y - (b.r / 2) > this.y && b.y + (b.r / 2) < this.y + this.h) {
+            if (paddleSide) {
+                if (b.x - (b.r / 2) < this.x + this.w) {
+                    b.v[0] *= -1.1;
+                }
+            } else {
+                if (b.x + (b.r / 2) > this.x) {
+                    b.v[0] *= -1.1;
+                }
+            }
+        }
     }
 }
 ;
@@ -19864,7 +19936,7 @@ function draw() {
 //     }
 // }
 ;
-/* global createCanvas background line stroke strokeWeight Paddle keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW */
+/* global createCanvas background line stroke strokeWeight Paddle keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW Ball */
 
 
 const WIDTH = 400;
@@ -19873,9 +19945,11 @@ const PAD_WIDTH = 20;
 const NUM_PADDLES = 2;
 
 var paddles = [];
+var ball = new Ball();
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);
+    
     for (var i = 0; i < NUM_PADDLES; i++) {
         if (i % 2 === 0) {
             paddles.push(new Paddle(0));
@@ -19883,8 +19957,6 @@ function setup() {
             paddles.push(new Paddle(WIDTH - PAD_WIDTH));
         }
     }
-    
-    //console.log(paddles);
 }
 
 function draw() {
@@ -19899,9 +19971,21 @@ function draw() {
     line(PAD_WIDTH, 0, PAD_WIDTH, HEIGHT);
     line(WIDTH - PAD_WIDTH, 0, WIDTH - PAD_WIDTH, HEIGHT);
     
+    // Paddle movement
     for (var i = 0; i < paddles.length; i++) {
         paddles[i].update();
         paddles[i].show();
+        paddles[i].stayOnScreen();
+    }
+    
+    // Ball movement
+    ball.update();
+    ball.show();
+    ball.collide();
+    
+    // Ball hitting a Paddle?
+    for (var i = 0; i < paddles.length; i++) {
+        paddles[i].collide(ball);
     }
 }
 
