@@ -1,6 +1,6 @@
 /* global background, createCanvas, Bird, key, Pipe, frameCount, nextGeneration, center, height */
 
-const TOTAL = 250;
+const TOTAL = 350;
 var birds = [];
 var savedBirds = [];
 var pipes = [];
@@ -32,6 +32,13 @@ function draw() {
                 savedBirds.push(birds.splice(j, 1)[0]);
             }
         }
+        
+        // Also remove birds touching floor or ceiling
+        // for (var k = birds.length - 1; k >= 0; k--) {
+        //     if (birds[k].y === 0 || birds[k].y === height) {
+        //         savedBirds.push(birds.splice(j, 1)[0]);
+        //     }
+        // }
         
         if (pipes[i].offscreen()) {
             pipes.splice(i, 1);

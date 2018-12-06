@@ -20,14 +20,14 @@ let tanh = new ActivationFunction(
 
 // This is how we adjust weights ever so slightly
 function mutateFunc(x) {
-  if (random(1) < 0.1) {
+  //if (random(1) < 0.1) {
     var offset = randomGaussian() * 0.5;
     // var offset = random(-0.1, 0.1);
     var newx = x + offset;
     return newx;
-  } else {
-    return x;
-  }
+ // } else {
+ //   return x;
+  //}
 }
 
 
