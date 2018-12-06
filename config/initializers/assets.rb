@@ -41,12 +41,21 @@ Rails.application.config.assets.precompile += %w( connect_style.css )
 Rails.application.config.assets.precompile += %w( skulpt.min.js )
 Rails.application.config.assets.precompile += %w( codeskulptor-compressed.js )
 
+# Neural Network implementations
 Rails.application.config.assets.precompile += %w( nn.js )
 Rails.application.config.assets.precompile += %w( matrix.js )
+
+# Js files for Flappy Bird project
 Rails.application.config.assets.precompile += %w( sketch_flappy.js )
 Rails.application.config.assets.precompile += %w( bird.js )
 Rails.application.config.assets.precompile += %w( pipe.js )
 Rails.application.config.assets.precompile += %w( ga_flappy.js )
+
+# Js files for Pong! project
+Rails.application.config.assets.precompile += %w( sketch_pong.js )
+Rails.application.config.assets.precompile += %w( paddle.js )
+Rails.application.config.assets.precompile += %w( ball.js )
+Rails.application.config.assets.precompile += %w( ga_pong.js )
 
 # -- home.js for home.html.erb
 Rails.application.config.assets.precompile += %w( home.js )
