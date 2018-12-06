@@ -30,6 +30,7 @@ Rails.application.config.assets.precompile += %w( go_style.css )
 Rails.application.config.assets.precompile += %w( swift_style.css )
 Rails.application.config.assets.precompile += %w( ml_style.css )
 Rails.application.config.assets.precompile += %w( flappy_style.css )
+Rails.application.config.assets.precompile += %w( pong_style.css )
 
 Rails.application.config.assets.precompile += %w( music_style.css )
 
