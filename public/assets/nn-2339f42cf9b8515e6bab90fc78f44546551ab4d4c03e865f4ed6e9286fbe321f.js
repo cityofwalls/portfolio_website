@@ -18,6 +18,18 @@ let tanh = new ActivationFunction(
   y => 1 - (y * y)
 );
 
+// This is how we adjust weights ever so slightly
+function mutateFunc(x) {
+  if (random(1) < 0.1) {
+    var offset = randomGaussian() * 0.5;
+    // var offset = random(-0.1, 0.1);
+    var newx = x + offset;
+    return newx;
+  } else {
+    return x;
+  }
+}
+
 
 class NeuralNetwork {
   /*
@@ -167,25 +179,13 @@ class NeuralNetwork {
   }
 
   // Accept an arbitrary function for mutation
-  mutate(func) {
-    this.weights_ih.map(func);
-    this.weights_ho.map(func);
-    this.bias_h.map(func);
-    this.bias_o.map(func);
-  }
-  
-  // This is how we adjust weights ever so slightly
   mutate(x) {
-    if (random(1) < 0.1) {
-      var offset = randomGaussian() * 0.5;
-      // var offset = random(-0.1, 0.1);
-      var newx = x + offset;
-      return newx;
-    } else {
-      return x;
+    if (random(1) < x) {
+      this.weights_ih.map(mutateFunc);
+      this.weights_ho.map(mutateFunc);
+      this.bias_h.map(mutateFunc);
+      this.bias_o.map(mutateFunc);
     }
   }
-
-
 }
 ;
