@@ -1,4 +1,4 @@
-/* global WIDTH HEIGHT DIAMETER fill ellipse */
+/* global WIDTH HEIGHT DIAMETER fill ellipse Math */
 
 class Ball {
     constructor() {

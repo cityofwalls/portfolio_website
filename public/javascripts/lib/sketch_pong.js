@@ -1,5 +1,4 @@
-/* global createCanvas background line stroke strokeWeight Paddle keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW Ball */
-
+/* global createCanvas background line stroke strokeWeight Ball Paddle keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW */
 
 const WIDTH = 400;
 const HEIGHT = 400;
@@ -8,10 +7,12 @@ const NUM_PADDLES = 2;
 const DIAMETER = 30;
 
 var paddles = [];
-var ball = new Ball();
+var ball;
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);
+    
+    ball = new Ball();
     
     for (var i = 0; i < NUM_PADDLES; i++) {
         if (i % 2 === 0) {
@@ -82,4 +83,3 @@ function keyReleased() {
         paddles[1].stop();
     }
 }
-;
