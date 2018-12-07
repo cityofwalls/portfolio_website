@@ -1,0 +1,3 @@
+This folder is a workaround for the asset pipeline rules of Rails. If js files are loaded from app/assets/javascripts, they will be loaded on every page by default. Placing them in this folder allows for unique js imports for each page. This solved the problem of multiple P5 sketches being loaded on a single page. Now we can have specific sketches and classes loaded for the appropriate game only. 
+
+From: https://stackoverflow.com/questions/37360023/rails-how-to-include-javascript-files-only-on-certain-pages
