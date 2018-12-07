@@ -67,12 +67,15 @@ class NeuralNetwork {
     // TODO: copy these as well
     this.setLearningRate();
     this.setActivationFunction();
-
-
+  }
+  
+  // Sets weights to hidden -> output nodes and output bias from 'mother' NN
+  breedWith(mother) {
+    this.weights_ho = mother.weights_ho.copy();
+    this.bias_o = mother.bias_o.copy();
   }
 
   predict(input_array) {
-
     // Generating the Hidden Outputs
     let inputs = Matrix.fromArray(input_array);
     let hidden = Matrix.multiply(this.weights_ih, inputs);
