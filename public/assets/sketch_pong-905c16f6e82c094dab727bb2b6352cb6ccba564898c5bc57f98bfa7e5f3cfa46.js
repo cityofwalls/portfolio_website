@@ -48,7 +48,17 @@ function draw() {
     
     // Ball hitting a Paddle?
     for (var i = 0; i < paddles.length; i++) {
-        paddles[i].collide(ball);
+        var miss = paddles[i].collide(ball);
+        if (miss) {
+            paddles = [];
+            for (var i = 0; i < NUM_PADDLES; i++) {
+                if (i % 2 === 0) {
+                    paddles.push(new Paddle(0));
+                } else {
+                    paddles.push(new Paddle(WIDTH - PAD_WIDTH));
+                }
+            }
+        }
     }
 }
 

@@ -48,16 +48,20 @@ class Paddle {
             if (b.x - b.r < this.x + this.w) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                    return false;
                 } else {
                     b.getNew();
+                    return true;
                 }
             }
         } else {
             if (b.x + b.r > this.x) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                    return false;
                 } else {
                     b.getNew();
+                    return true;
                 }
             }
         }

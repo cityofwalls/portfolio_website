@@ -19803,16 +19803,20 @@ class Paddle {
             if (b.x - b.r < this.x + this.w) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                    return false;
                 } else {
                     b.getNew();
+                    return true;
                 }
             }
         } else {
             if (b.x + b.r > this.x) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                    return false;
                 } else {
                     b.getNew();
+                    return true;
                 }
             }
         }
@@ -20008,7 +20012,17 @@ function draw() {
     
     // Ball hitting a Paddle?
     for (var i = 0; i < paddles.length; i++) {
-        paddles[i].collide(ball);
+        var miss = paddles[i].collide(ball);
+        if (miss) {
+            paddles = [];
+            for (var i = 0; i < NUM_PADDLES; i++) {
+                if (i % 2 === 0) {
+                    paddles.push(new Paddle(0));
+                } else {
+                    paddles.push(new Paddle(WIDTH - PAD_WIDTH));
+                }
+            }
+        }
     }
 }
 
