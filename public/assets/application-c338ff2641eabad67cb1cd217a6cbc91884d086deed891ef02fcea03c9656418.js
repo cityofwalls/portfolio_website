@@ -18518,14 +18518,14 @@ return Popper;
 
 
 
-/* global WIDTH HEIGHT fill ellipse */
+/* global WIDTH HEIGHT DIAMETER fill ellipse */
 
 
 class Ball {
     constructor() {
         this.x = WIDTH / 2;
         this.y = HEIGHT / 2;
-        this.r = 30;
+        this.r = DIAMETER / 2;
         this.v = [0, 0];
         
         if (Math.random(1) < 0.5) {
@@ -18543,7 +18543,7 @@ class Ball {
     
     show() {
         fill(255);
-        ellipse(this.x, this.y, this.r);
+        ellipse(this.x, this.y, DIAMETER);
     }
     
     update() {
@@ -18552,10 +18552,29 @@ class Ball {
     }
     
     collide() {
-        if (this.y - (this.r / 2) < 0) {
+        if (this.y - this.r < 0) {
             this.v[1] *= -1;
-        } else if (this.y + (this.r / 2) > HEIGHT) {
+        } else if (this.y + this.r > HEIGHT) {
             this.v[1] *= -1;
+        }
+    }
+    
+    getNew() {
+        this.x = WIDTH / 2;
+        this.y = HEIGHT / 2;
+        this.r = DIAMETER / 2;
+        this.v = [0, 0];
+        
+        if (Math.random(1) < 0.5) {
+            this.v[0] = 2;
+        } else {
+            this.v[0] = -2;
+        }
+        
+        if (Math.random(1) < 0.5) {
+            this.v[1] = 2;
+        } else {
+            this.v[1] = -2;
         }
     }
 }
@@ -19779,18 +19798,21 @@ class Paddle {
     }
     
     collide(b) {
-        // Find which side of the board the paddle is on.
-        // If paddleSide is true, the paddle is on the left. Otherwise it's on the right
         var paddleSide = this.x < WIDTH / 2;
-        
-        if (b.y - (b.r / 2) > this.y && b.y + (b.r / 2) < this.y + this.h) {
-            if (paddleSide) {
-                if (b.x - (b.r / 2) < this.x + this.w) {
+        if (paddleSide) {
+            if (b.x - b.r < this.x + this.w) {
+                if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                } else {
+                    b.getNew();
                 }
-            } else {
-                if (b.x + (b.r / 2) > this.x) {
+            }
+        } else {
+            if (b.x + b.r > this.x) {
+                if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                } else {
+                    b.getNew();
                 }
             }
         }
@@ -19943,6 +19965,7 @@ const WIDTH = 400;
 const HEIGHT = 400;
 const PAD_WIDTH = 20;
 const NUM_PADDLES = 2;
+const DIAMETER = 30;
 
 var paddles = [];
 var ball = new Ball();

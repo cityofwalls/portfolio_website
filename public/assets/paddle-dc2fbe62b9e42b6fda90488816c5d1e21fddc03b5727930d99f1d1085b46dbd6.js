@@ -44,18 +44,21 @@ class Paddle {
     }
     
     collide(b) {
-        // Find which side of the board the paddle is on.
-        // If paddleSide is true, the paddle is on the left. Otherwise it's on the right
         var paddleSide = this.x < WIDTH / 2;
-        
-        if (b.y - (b.r / 2) > this.y && b.y + (b.r / 2) < this.y + this.h) {
-            if (paddleSide) {
-                if (b.x - (b.r / 2) < this.x + this.w) {
+        if (paddleSide) {
+            if (b.x - b.r < this.x + this.w) {
+                if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                } else {
+                    b.getNew();
                 }
-            } else {
-                if (b.x + (b.r / 2) > this.x) {
+            }
+        } else {
+            if (b.x + b.r > this.x) {
+                if (b.y >= this.y && b.y <= this.y + this.h) {
                     b.v[0] *= -1.1;
+                } else {
+                    b.getNew();
                 }
             }
         }

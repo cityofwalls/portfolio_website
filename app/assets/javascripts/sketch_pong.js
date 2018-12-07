@@ -4,6 +4,7 @@ const WIDTH = 400;
 const HEIGHT = 400;
 const PAD_WIDTH = 20;
 const NUM_PADDLES = 2;
+const DIAMETER = 30;
 
 var paddles = [];
 var ball = new Ball();
