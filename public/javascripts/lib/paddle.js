@@ -21,7 +21,7 @@ class Paddle {
                 to make a decision. The output values will be used to see if the paddle should move
                 up, down, or stay still (==).
             */
-            this.brain = new NeuralNetwork(2, 4, 2);
+            this.brain = new NeuralNetwork(2, 6, 3);
         }
     }
     
@@ -30,7 +30,7 @@ class Paddle {
     }
     
     show(color) {
-        noStroke();
+        // noStroke();
         fill(color[0], color[1], color[2]);
         rect(this.x, this.y, this.w, this.h);
     }
@@ -68,7 +68,7 @@ class Paddle {
             if (b.x - b.r < this.x + this.w) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     // This paddle reflected the ball! score + 0.2
-                    this.score += 0.2
+                    this.score += 0.4;
                     b.v[0] *= -1.1;
                     return false;
                 } else {
@@ -80,7 +80,7 @@ class Paddle {
             if (b.x + b.r > this.x) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     // This paddle reflected the ball! score + 0.2
-                    this.score += 0.2;
+                    this.score += 0.4;
                     b.v[0] *= -1.1;
                     return false;
                 } else {
@@ -95,12 +95,28 @@ class Paddle {
         let inputs = [this.y, b.y];
         let outputs = this.brain.predict(inputs);
         
-        if (outputs[0] < outputs[1]) {
+        if (outputs[0] > outputs[1] && outputs[0] > outputs[2]) {
+            this.stop();
+        } else if (outputs[1] > outputs[0] && outputs[1] > outputs[2]) {
             this.up();
-        } else if (outputs[0] > outputs[1]) {
+        } else if (outputs[2] > outputs[0] && outputs[2] > outputs[1]) {
+            this.down();
+        } else if (outputs[0] === outputs[1]) {
+            this.stop();
+        } else if (outputs[1] === outputs[2]) {
+            this.up();
+        } else if (outputs[0] === outputs[2]) {
             this.down();
         } else {
             this.stop();
         }
+        
+        // if (outputs[0] < outputs[1]) {
+        //     this.up();
+        // } else if (outputs[0] > outputs[1]) {
+        //     this.down();
+        // } else {
+        //     this.stop();
+        // }
     }
 }

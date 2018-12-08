@@ -1,12 +1,13 @@
 /* global createCanvas background line stroke strokeWeight Paddle Ball nextGeneration keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW */
 
-const WIDTH = 400;
-const HEIGHT = 400;
+const WIDTH = 500;
+const HEIGHT = 500;
 const PAD_WIDTH = 20;
 const NUM_PADDLES = 2;
 const DIAMETER = 30;
-const TOTAL = 16;
+const TOTAL = 8;
 
+var c;
 var paddles = [];
 var currentPaddles = [];
 var p1 = 0;
@@ -111,9 +112,9 @@ function updatePaddleColor() {
         paddleColor[2] -= 25;
     }
     
-    for (let value of paddleColor) {
-        if (value < 0) {
-            value = 250;
+    for (var i = 0; i < paddleColor.length; i++) {
+        if (paddleColor[i] < 50) {
+            paddleColor[i] = 250;
         }
     }
 }

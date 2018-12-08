@@ -15,9 +15,9 @@ class Ball {
         }
         
         if (Math.random(1) < 0.5) {
-            this.v[1] = this.speed;
+            this.v[1] = 2;
         } else {
-            this.v[1] = -this.speed;
+            this.v[1] = -2;
         }
     }
     
@@ -52,9 +52,9 @@ class Ball {
         }
         
         if (Math.random(1) < 0.5) {
-            this.v[1] = this.speed;
+            this.v[1] = 2;
         } else {
-            this.v[1] = -this.speed;
+            this.v[1] = -2;
         }
     }
 }

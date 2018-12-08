@@ -5,7 +5,7 @@ function nextGeneration() {
     
     let topThree = pickTopThree();
     for (var i = 0; i < TOTAL; i++) {
-        paddles[i] = breeder(topThree);
+        paddles[i] = spawner(topThree);
     }
 }
 
@@ -37,13 +37,40 @@ function pickTopThree() {
     return result;
 }
 
-function breeder(parents) {
-    var child = parents[0].brain.copy();
-    parents = shuffle(parents);
-    var otherDNA = parents[0].brain.copy();
-    var newChild = new Paddle(0, child.crossover(otherDNA));
-    newChild.mutate();
-    return newChild;
+// Take top fitness, or take pure 2nd/3rd place, or take crossover 2nd/3rd
+function spawner(parents) {
+    if (Math.random(1) < 0.5) {
+        var childBrain0 = parents[0].brain.copy();
+        childBrain0.mutate();
+        var newChild0 = new Paddle(0, childBrain0);
+        return newChild0;
+    } else {
+        var r = Math.random(1);
+        if (r < 0.33) {
+            var childBrain1 = parents[1].brain.copy();
+            childBrain1.mutate();
+            var newChild1 = new Paddle(0, childBrain1);
+            return newChild1;
+        } else if (r < 0.66) {
+            var childBrain2 = parents[2].brain.copy();
+            childBrain2.mutate();
+            var newChild2 = new Paddle(0, childBrain2);
+            return newChild2
+        } else {
+            var childBrain = parents[1].brain.copy();
+            var otherBrain = parents[2].brain.copy();
+            var newChild = new Paddle(0, childBrain.crossover(otherBrain));
+            newChild.mutate();
+            return newChild;
+        }
+    }
+    
+    // var child = parents[0].brain.copy();
+    // parents = shuffle(parents);
+    // var otherDNA = parents[0].brain.copy();
+    // var newChild = new Paddle(0, child.crossover(otherDNA));
+    // newChild.mutate();
+    // return newChild;
 }
 
 function shuffle(a) {
