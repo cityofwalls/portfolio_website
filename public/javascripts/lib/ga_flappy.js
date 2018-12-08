@@ -41,7 +41,6 @@ function calculateFitness() {
         sum += bird.score;
     }
     
-    // Linear fitness calculation
     for (let bird of savedBirds) {
         bird.fitness = bird.score / sum;
     }

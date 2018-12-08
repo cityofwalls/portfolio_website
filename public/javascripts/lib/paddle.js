@@ -1,17 +1,37 @@
-/* global WIDTH HEIGHT PAD_WIDTH rect fill */
+/* global WIDTH HEIGHT PAD_WIDTH rect fill NeuralNetwork noStroke */
 
 class Paddle {
-    constructor(x) {
+    constructor(x, brain) {
         this.w = PAD_WIDTH;
         this.h = HEIGHT / 5;
         this.x = x;
         this.y = HEIGHT / 2 - (this.h / 2);
         this.v = 0;
         this.a = 3;
+        this.score = 0.0;
+        this.fitness = 0.0;
+        
+        if (brain) {
+            this.brain = brain.copy();
+        } else {
+            // inputs: this.y, ball.y
+            /*
+                First trying with 2 input, 4 hidden, and 2 output nodes.
+                My argument is that a paddle only needs to see its y value and the ball's y value
+                to make a decision. The output values will be used to see if the paddle should move
+                up, down, or stay still (==).
+            */
+            this.brain = new NeuralNetwork(2, 4, 2);
+        }
     }
     
-    show() {
-        fill(255);
+    mutate() {
+        this.brain.mutate(0.1);
+    }
+    
+    show(color) {
+        noStroke();
+        fill(color[0], color[1], color[2]);
         rect(this.x, this.y, this.w, this.h);
     }
     
@@ -47,6 +67,8 @@ class Paddle {
         if (paddleSide) {
             if (b.x - b.r < this.x + this.w) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
+                    // This paddle reflected the ball! score + 0.2
+                    this.score += 0.2
                     b.v[0] *= -1.1;
                     return false;
                 } else {
@@ -57,6 +79,8 @@ class Paddle {
         } else {
             if (b.x + b.r > this.x) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
+                    // This paddle reflected the ball! score + 0.2
+                    this.score += 0.2;
                     b.v[0] *= -1.1;
                     return false;
                 } else {
@@ -64,6 +88,19 @@ class Paddle {
                     return true;
                 }
             }
+        }
+    }
+    
+    think(b) {
+        let inputs = [this.y, b.y];
+        let outputs = this.brain.predict(inputs);
+        
+        if (outputs[0] < outputs[1]) {
+            this.up();
+        } else if (outputs[0] > outputs[1]) {
+            this.down();
+        } else {
+            this.stop();
         }
     }
 }

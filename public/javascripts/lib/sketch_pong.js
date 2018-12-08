@@ -1,18 +1,24 @@
-/* global createCanvas background line stroke strokeWeight Paddle Ball keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW */
+/* global createCanvas background line stroke strokeWeight Paddle Ball nextGeneration keyCode LEFT_ARROW RIGHT_ARROW UP_ARROW DOWN_ARROW */
 
 const WIDTH = 400;
 const HEIGHT = 400;
 const PAD_WIDTH = 20;
 const NUM_PADDLES = 2;
 const DIAMETER = 30;
+const TOTAL = 16;
 
 var paddles = [];
+var currentPaddles = [];
+var p1 = 0;
+var p2 = 1;
 var ball;
+
+var paddleColor = [250, 250, 250];
 
 function setup() {
     createCanvas(WIDTH, HEIGHT);
     
-    for (var i = 0; i < NUM_PADDLES; i++) {
+    for (var i = 0; i < TOTAL; i++) {
         if (i % 2 === 0) {
             paddles.push(new Paddle(0));
         } else {
@@ -20,6 +26,7 @@ function setup() {
         }
     }
     
+    getCurrentPaddles();
     ball = new Ball();
 }
 
@@ -35,11 +42,12 @@ function draw() {
     line(PAD_WIDTH, 0, PAD_WIDTH, HEIGHT);
     line(WIDTH - PAD_WIDTH, 0, WIDTH - PAD_WIDTH, HEIGHT);
     
-    // Paddle movement
-    for (var i = 0; i < paddles.length; i++) {
-        paddles[i].update();
-        paddles[i].show();
-        paddles[i].stayOnScreen();
+    // Paddle movement... allow paddles to think
+    for (var i = 0; i < currentPaddles.length; i++) {
+        currentPaddles[i].think(ball);
+        currentPaddles[i].update();
+        currentPaddles[i].show(paddleColor);
+        currentPaddles[i].stayOnScreen();
     }
     
     // Ball movement
@@ -48,38 +56,86 @@ function draw() {
     ball.collide();
     
     // Ball hitting a Paddle?
-    for (var i = 0; i < paddles.length; i++) {
-        var miss = paddles[i].collide(ball);
+    for (var i = 0; i < currentPaddles.length; i++) {
+        var miss = currentPaddles[i].collide(ball);
         if (miss) {
-            paddles = [];
-            for (var i = 0; i < NUM_PADDLES; i++) {
-                if (i % 2 === 0) {
-                    paddles.push(new Paddle(0));
-                } else {
-                    paddles.push(new Paddle(WIDTH - PAD_WIDTH));
-                }
+            if (i === 0) {
+                currentPaddles[1].score += 1.0;
+            } else {
+                currentPaddles[0].score += 1.0;
             }
+            saveScores();
+            incrementPlayers();
+            getCurrentPaddles();
         }
     }
 }
 
-function keyPressed() {
-    if (keyCode === LEFT_ARROW) {
-        paddles[0].up();
-    } else if (keyCode === RIGHT_ARROW) {
-        paddles[0].down();
-    }
-    if (keyCode === UP_ARROW) {
-        paddles[1].up();
-    } else if (keyCode === DOWN_ARROW) {
-        paddles[1].down();
+function saveScores() {
+    paddles[p1].score = currentPaddles[0].score;
+    paddles[p2].score = currentPaddles[1].score;
+}
+
+function incrementPlayers() {
+    if (p2 < TOTAL - 1) {
+        p2++;
+    } else {
+        p1++;
+        if (p1 === TOTAL - 1) {
+            p1 = 0;
+            p2 = 1;
+            updatePaddleColor();
+            nextGeneration();
+        } else {
+            p2 = p1 + 1;
+        }
     }
 }
 
-function keyReleased() {
-    if (keyCode === LEFT_ARROW || keyCode === RIGHT_ARROW) {
-        paddles[0].stop();
-    } else if (keyCode === UP_ARROW || keyCode === DOWN_ARROW) {
-        paddles[1].stop();
+/* Each generation will play ALLvALL with their scores increasing as they go */
+function getCurrentPaddles() {
+    currentPaddles = [];
+    currentPaddles.push(new Paddle(0, paddles[p1].brain));
+    currentPaddles[0].score = paddles[p1].score;
+    currentPaddles.push(new Paddle(WIDTH - PAD_WIDTH, paddles[p2].brain));
+    currentPaddles[1].score = paddles[p2].score;
+}
+
+function updatePaddleColor() {
+    var r = Math.random();
+    console.log(r);
+    if (r < 0.333) {
+        paddleColor[0] -= 25;
+    } else if (r < 0.666) {
+        paddleColor[1] -= 25;
+    } else {
+        paddleColor[2] -= 25;
+    }
+    
+    for (let value of paddleColor) {
+        if (value < 0) {
+            value = 250;
+        }
     }
 }
+
+// function keyPressed() {
+//     if (keyCode === LEFT_ARROW) {
+//         paddles[0].up();
+//     } else if (keyCode === RIGHT_ARROW) {
+//         paddles[0].down();
+//     }
+//     if (keyCode === UP_ARROW) {
+//         paddles[1].up();
+//     } else if (keyCode === DOWN_ARROW) {
+//         paddles[1].down();
+//     }
+// }
+
+// function keyReleased() {
+//     if (keyCode === LEFT_ARROW || keyCode === RIGHT_ARROW) {
+//         paddles[0].stop();
+//     } else if (keyCode === UP_ARROW || keyCode === DOWN_ARROW) {
+//         paddles[1].stop();
+//     }
+// }

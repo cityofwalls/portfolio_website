@@ -69,10 +69,10 @@ class NeuralNetwork {
     this.setActivationFunction();
   }
   
-  // Sets weights to hidden -> output nodes and output bias from 'mother' NN
-  breedWith(mother) {
-    this.weights_ho = mother.weights_ho.copy();
-    this.bias_o = mother.bias_o.copy();
+  // Sets weights to hidden -> output nodes and output bias from otherBrain NN
+  crossover(otherBrain) {
+    this.weights_ho = otherBrain.weights_ho.copy();
+    this.bias_o = otherBrain.bias_o.copy();
   }
 
   predict(input_array) {
