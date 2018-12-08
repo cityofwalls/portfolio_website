@@ -103,7 +103,6 @@ function getCurrentPaddles() {
 
 function updatePaddleColor() {
     var r = Math.random();
-    console.log(r);
     if (r < 0.333) {
         paddleColor[0] -= 25;
     } else if (r < 0.666) {
