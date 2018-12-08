@@ -39,31 +39,71 @@ function pickTopThree() {
 
 // Take top fitness, or take pure 2nd/3rd place, or take crossover 2nd/3rd
 function spawner(parents) {
-    if (Math.random(1) < 0.5) {
-        var childBrain0 = parents[0].brain.copy();
-        childBrain0.mutate();
-        var newChild0 = new Paddle(0, childBrain0);
-        return newChild0;
+    var childType = Math.random(1);
+    if (childType < 0.25) {
+        var childBrainType1 = parents[0].brain.copy();
+        var otherBrainType1 = parents[1].brain.copy();
+        if (Math.random(1) < 0.5) {
+            otherBrainType1 = parents[2].brain.copy();
+        }
+        var newChildType1 = new Paddle(0, childBrainType1.crossover(otherBrainType1));
+        newChildType1.mutate();
+        return newChildType1;
+    } else if (childType < 0.5) {
+        var childBrainType2 = parents[1].brain.copy();
+        var otherBrainType2 = parents[2].brain.copy();
+        if (Math.random(1) < 0.5) {
+            otherBrainType2 = parents[0].brain.copy();
+        }
+        var newChildType2 = new Paddle(0, childBrainType2.crossover(otherBrainType2));
+        newChildType2.mutate();
+        return newChildType2;
+    } else if (childType < 0.75) {
+        var childBrainType3 = parents[2].brain.copy();
+        var otherBrainType3 = parents[0].brain.copy();
+        if (Math.random(1) < 0.5) {
+            otherBrainType3 = parents[1].brain.copy();
+        }
+        var newChildType3 = new Paddle(0, childBrainType3.crossover(otherBrainType3));
+        newChildType3.mutate();
+        return newChildType3;
     } else {
-        var r = Math.random(1);
-        if (r < 0.33) {
-            var childBrain1 = parents[1].brain.copy();
-            childBrain1.mutate();
-            var newChild1 = new Paddle(0, childBrain1);
-            return newChild1;
-        } else if (r < 0.66) {
-            var childBrain2 = parents[2].brain.copy();
-            childBrain2.mutate();
-            var newChild2 = new Paddle(0, childBrain2);
-            return newChild2
+        if (Math.random(1) < 0.5) {
+            return parents[0];
         } else {
-            var childBrain = parents[1].brain.copy();
-            var otherBrain = parents[2].brain.copy();
-            var newChild = new Paddle(0, childBrain.crossover(otherBrain));
-            newChild.mutate();
-            return newChild;
+            if (Math.random(1) < 0.66) {
+                return parents[1];
+            } else {
+                return parents[2];
+            }
         }
     }
+    
+    // if (Math.random(1) < 0.5) {
+    //     var childBrain0 = parents[0].brain.copy();
+    //     childBrain0.mutate();
+    //     var newChild0 = new Paddle(0, childBrain0);
+    //     return newChild0;
+    // } else {
+    //     var r = Math.random(1);
+    //     if (r < 0.33) {
+    //         var childBrain1 = parents[1].brain.copy();
+    //         childBrain1.mutate();
+    //         var newChild1 = new Paddle(0, childBrain1);
+    //         return newChild1;
+    //     } else if (r < 0.66) {
+    //         var childBrain2 = parents[2].brain.copy();
+    //         childBrain2.mutate();
+    //         var newChild2 = new Paddle(0, childBrain2);
+    //         return newChild2;
+    //     } else {
+    //         var childBrain = parents[1].brain.copy();
+    //         var otherBrain = parents[2].brain.copy();
+    //         var newChild = new Paddle(0, childBrain.crossover(otherBrain));
+    //         newChild.mutate();
+    //         return newChild;
+    //     }
+    // }
     
     // var child = parents[0].brain.copy();
     // parents = shuffle(parents);
