@@ -60,11 +60,11 @@ function draw() {
     for (var i = 0; i < currentPaddles.length; i++) {
         var miss = currentPaddles[i].collide(ball);
         if (miss) {
-            if (i === 0) {
-                currentPaddles[1].score += 1.0;
-            } else {
-                currentPaddles[0].score += 1.0;
-            }
+            // if (i === 0) {
+            //     currentPaddles[1].score += 1.0;
+            // } else {
+            //     currentPaddles[0].score += 1.0;
+            // }
             saveScores();
             incrementPlayers();
             getCurrentPaddles();

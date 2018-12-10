@@ -68,8 +68,12 @@ class Paddle {
             if (b.x - b.r < this.x + this.w) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     // This paddle reflected the ball! score + 0.2
-                    this.score += 0.4;
-                    b.v[0] *= -1.1;
+                    this.score += 1.0; // 0.4
+                    if (b.v[0] < 100.0) {
+                        b.v[0] *= -1.1;
+                    } else {
+                        b.v[0] *= -1.0;
+                    }
                     return false;
                 } else {
                     b.getNew();
@@ -80,8 +84,12 @@ class Paddle {
             if (b.x + b.r > this.x) {
                 if (b.y >= this.y && b.y <= this.y + this.h) {
                     // This paddle reflected the ball! score + 0.2
-                    this.score += 0.4;
-                    b.v[0] *= -1.1;
+                    this.score += 1.0; // 0.4
+                    if (b.v[0] < 100.0) {
+                        b.v[0] *= -1.1;
+                    } else {
+                        b.v[0] *= -1.0;
+                    }
                     return false;
                 } else {
                     b.getNew();
