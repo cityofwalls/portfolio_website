@@ -7,6 +7,7 @@ class Ball {
         this.r = DIAMETER / 2;
         this.v = [0, 0];
         this.speed = 7;
+        this.angle = Math.floor(Math.random() * 4) + 2;
         
         if (Math.random(1) < 0.5) {
             this.v[0] = this.speed;
@@ -15,9 +16,9 @@ class Ball {
         }
         
         if (Math.random(1) < 0.5) {
-            this.v[1] = 2;
+            this.v[1] = this.angle;
         } else {
-            this.v[1] = -2;
+            this.v[1] = -this.angle;
         }
     }
     
@@ -52,9 +53,9 @@ class Ball {
         }
         
         if (Math.random(1) < 0.5) {
-            this.v[1] = 2;
+            this.v[1] = this.angle;
         } else {
-            this.v[1] = -2;
+            this.v[1] = -this.angle;
         }
     }
 }
